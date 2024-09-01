@@ -1,29 +1,29 @@
-.trending {
+.originals {
   display: flex;
   flex-direction: column;
   text-align: center;
   color: #fff;
   margin: 10px 20px;
 }
-.trending h1 {
+.originals h1 {
   color: white;
 }
-.trending .cards {
+.originals .cards {
   display: flex;
   padding: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
-.trending .cards::-webkit-scrollbar {
+.originals .cards::-webkit-scrollbar {
   display: none;
 }
-.trending .cards .card {
+.originals .cards .card {
   max-height: 300px;
   margin-right: 15px;
   border-radius: 7.5px;
   transition: 0.25s ease-in-out;
 }
-.trending .cards .card:hover {
+.originals .cards .card:hover {
   scale: 1.05;
-}/*# sourceMappingURL=Trending.css.map */
+}/*# sourceMappingURL=Originals.css.map */

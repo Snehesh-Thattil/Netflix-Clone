@@ -1,14 +1,13 @@
 .banner {
-  background-image: url("https://wallpaperaccess.com/full/2703652.png");
   background-size: cover;
   width: 100%;
   height: 450px;
   font-weight: 700;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   color: white;
 }
 .banner .content {
-  padding: 200px 0 0 15px;
+  padding: 200px 0 0 35px;
   height: 220px;
   margin-bottom: 2rem;
   text-align: justify;

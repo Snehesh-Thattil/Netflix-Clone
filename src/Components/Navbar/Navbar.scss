@@ -3,17 +3,31 @@
     top: 0;
     left: 0;
     right: 0;
+    height: 3.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
     background-color: #111;
+    opacity: 0.75;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        opacity: 1;
+    }
 
     .logo {
         width: 80px;
+        cursor: pointer;
     }
 
     .avatar {
         width: 30px;
+        cursor: pointer;
+        transition: .2s ease-in-out;
+
+        &:hover {
+            scale: 1.1;
+        }
     }
 }
