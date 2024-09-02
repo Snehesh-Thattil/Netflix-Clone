@@ -20,10 +20,14 @@
 }
 .originals .cards .card {
   max-height: 300px;
+  width: 25rem;
   margin-right: 15px;
   border-radius: 7.5px;
   transition: 0.25s ease-in-out;
 }
-.originals .cards .card:hover {
-  scale: 1.05;
+.originals .cards .card img:hover {
+  scale: 1.025;
+}
+.originals .cards .card h1 {
+  font-size: 17.5px;
 }/*# sourceMappingURL=Originals.css.map */
