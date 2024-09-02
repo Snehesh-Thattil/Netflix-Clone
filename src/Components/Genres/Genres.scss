@@ -1,12 +1,13 @@
-.originals {
+.genres {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     color: #fff;
     margin: 10px 20px;
 
     h1 {
         color: white;
+        margin-left: 1rem;
     }
 
     .cards {
@@ -15,6 +16,7 @@
         overflow-x: scroll;
         overflow-y: hidden;
         scroll-behavior: smooth;
+        text-align: center;
 
         &::-webkit-scrollbar {
             display: none;

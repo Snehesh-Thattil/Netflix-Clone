@@ -1,33 +1,35 @@
-.originals {
+.genres {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
   color: #fff;
   margin: 10px 20px;
 }
-.originals h1 {
+.genres h1 {
   color: white;
+  margin-left: 1rem;
 }
-.originals .cards {
+.genres .cards {
   display: flex;
   padding: 10px;
   overflow-x: scroll;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  text-align: center;
 }
-.originals .cards::-webkit-scrollbar {
+.genres .cards::-webkit-scrollbar {
   display: none;
 }
-.originals .cards .card {
+.genres .cards .card {
   max-height: 300px;
   width: 25rem;
   margin-right: 15px;
   border-radius: 7.5px;
   transition: 0.25s ease-in-out;
 }
-.originals .cards .card img:hover {
+.genres .cards .card img:hover {
   scale: 1.025;
 }
-.originals .cards .card h1 {
+.genres .cards .card h1 {
   font-size: 17.5px;
-}/*# sourceMappingURL=Originals.css.map */
+}/*# sourceMappingURL=Genres.css.map */

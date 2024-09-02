@@ -1,14 +1,15 @@
-import './Originals.css'
+import './Genres.css'
 import React, { useEffect, useState } from 'react'
-import axios, { API_KEY, imageUrl } from '../Constants/Constants'
+import { imageUrl } from '../Constants/URLs'
+import axios from '../Constants/Constants'
 
-function Originals() {
+function Genres(props) {
     const [originals, setOriginals] = useState([])
 
     useEffect(() => {
-        axios.get(`/discover/tv?api_key=${API_KEY}&with_networks=213`)
+        axios.get(props.genreUrl)
             .then((res) => {
-                // console.log(res.data.results)
+                console.log(res.data.results)
                 setOriginals(res.data.results)
             })
             .catch((err) => {
@@ -17,14 +18,14 @@ function Originals() {
     }, [])
 
     return (
-        <div className='originals'>
-            <h1>Originals</h1>
+        <div className='genres'>
+            <h1>{props.title}</h1>
             <div className="cards">
                 {originals.map((movie) => {
                     return (
                         <div className="card">
-                            <img className='card' src={`${imageUrl}/${movie.backdrop_path}`} alt="Netflix_Originals" />
-                            <h1>{movie.name}</h1>
+                            <img className='card' src={`${imageUrl}/${movie.backdrop_path ? movie.backdrop_path : "/2VFUh8spzyNbRNPyncIrFmSwBrd.jpg"}`} alt="Netflix_Originals" />
+                            <h1>{movie.name ? movie.name : movie.title}</h1>
                         </div>
                     )
                 })}
@@ -33,4 +34,4 @@ function Originals() {
     )
 }
 
-export default Originals
+export default Genres
