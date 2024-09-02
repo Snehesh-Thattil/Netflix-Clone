@@ -29,6 +29,10 @@
             border-radius: 7.5px;
             transition: .25s ease-in-out;
 
+            &.isSmall {
+                scale: 0.9;
+            }
+
             img {
                 &:hover {
                     scale: 1.025;

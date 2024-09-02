@@ -27,6 +27,9 @@
   border-radius: 7.5px;
   transition: 0.25s ease-in-out;
 }
+.genres .cards .card.isSmall {
+  scale: 0.9;
+}
 .genres .cards .card img:hover {
   scale: 1.025;
 }
