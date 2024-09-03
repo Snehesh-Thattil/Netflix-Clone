@@ -10,7 +10,7 @@
     justify-content: space-between;
     background-color: #111;
     opacity: 0.75;
-    transition: .3s ease-in-out;
+    transition: .2s ease-in-out;
     z-index: 2;
 
     &:hover {
@@ -20,6 +20,29 @@
     .logo {
         width: 80px;
         cursor: pointer;
+    }
+
+    .navItems {
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        list-style: none;
+
+        li {
+            margin-right: 2rem;
+
+            a {
+
+                text-decoration: none;
+                color: rgb(204, 204, 204);
+                font-weight: bold;
+
+                &:hover {
+                    color: white;
+                }
+            }
+        }
     }
 
     .avatar {
