@@ -51,7 +51,7 @@ function Genres(props) {
             <div className="cards">
                 {originals.map((movie) => {
                     return (
-                        <div className={props.isSmall ? "card isSmall" : "card"}>
+                        <div key={movie.id} className={props.isSmall ? "card isSmall" : "card"}>
                             <img onClick={() => showTrailer(movie.id)} className='card' src={`${imageUrl}/${movie.backdrop_path ? movie.backdrop_path : "/2VFUh8spzyNbRNPyncIrFmSwBrd.jpg"}`} alt="Netflix_Originals" />
                             <h1>{movie.name ? movie.name : movie.title}</h1>
                         </div>

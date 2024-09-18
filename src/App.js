@@ -1,30 +1,19 @@
 import './App.css';
-import Banner from './Components/Banner/Banner';
-import Navbar from './Components/Navbar/Navbar';
-import Genres from './Components/Genres/Genres';
-import { originals, action, romance, documentaries, horror, comedy } from './Components/Constants/URLs'
 import { Routes, Route } from 'react-router-dom';
-import Movies from './Components/Navbar/NavItems/Movies'
-import TVshows from './Components/Navbar/NavItems/TVshows'
-import MyList from './Components/Navbar/NavItems/MyList'
-import NewsAndPopular from './Components/Navbar/NavItems/NewsAndPopular'
-import BrowseByLanguage from './Components/Navbar/NavItems/BrowseByLanguage'
+import Movies from './Components/NavItems/Movies'
+import TVshows from './Components/NavItems/TVshows'
+import MyList from './Components/NavItems/MyList'
+import NewsAndPopular from './Components/NavItems/NewsAndPopular'
+import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
+import Home from './Home';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Banner />
-
-      <Genres title='Originals' genreUrl={originals} />
-      <Genres title='Action' genreUrl={action} isSmall />
-      <Genres title='Romance' genreUrl={romance} isSmall />
-      <Genres title='Comedy' genreUrl={comedy} isSmall />
-      <Genres title='Horror' genreUrl={horror} isSmall />
-      <Genres title='Documentaries' genreUrl={documentaries} isSmall />
 
       {/* Rotes Configuration */}
       <Routes>
+        <Route exact element={<Home />} path='/'></Route>
         <Route element={<Movies />} path='/movies'></Route>
         <Route element={<TVshows />} path='/tvshows'></Route>
         <Route element={<MyList />} path='/mylist'></Route>
