@@ -6,11 +6,11 @@ import { originals, action, romance, documentaries, horror, comedy } from './Com
 
 
 function Home() {
+    // Rendering
     return (
         <div>
             <Navbar />
             <Banner />
-
             <Genres title='Originals' genreUrl={originals} />
             <Genres title='Action' genreUrl={action} isSmall />
             <Genres title='Romance' genreUrl={romance} isSmall />

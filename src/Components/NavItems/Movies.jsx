@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Movies() {
+  // Rendering
   return (
     <div style={
       {

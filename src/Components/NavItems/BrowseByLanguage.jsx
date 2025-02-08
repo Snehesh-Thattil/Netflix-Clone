@@ -1,6 +1,7 @@
 import React from 'react'
 
 function BrowseByLanguage() {
+    // Rendering
     return (
         <div style={
             {

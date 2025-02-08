@@ -1,6 +1,7 @@
 import React from 'react'
 
 function NewsAndPopular() {
+  // Rendering
   return (
     <div style={
       {

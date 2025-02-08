@@ -8,10 +8,9 @@ import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
 import Home from './Home';
 
 function App() {
+  // Render
   return (
     <div className="App">
-
-      {/* Rotes Configuration */}
       <Routes>
         <Route exact element={<Home />} path='/'></Route>
         <Route element={<Movies />} path='/movies'></Route>

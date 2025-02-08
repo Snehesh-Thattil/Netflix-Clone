@@ -8,10 +8,10 @@ function Genres(props) {
     const [originals, setOriginals] = useState([])
     const [trailer, setTrailer] = useState()
 
+    // API calls for genre movies using axios
     useEffect(() => {
         axios.get(props.genreUrl)
             .then((res) => {
-                // console.log(res.data.results)
                 setOriginals(res.data.results)
             })
             .catch((err) => {
@@ -19,11 +19,11 @@ function Genres(props) {
             })
     }, [props.genreUrl])
 
+    // Show trailer when clicking
     const showTrailer = (movieId) => {
         axios.get(`/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
             .then((res) => {
                 if (res.data.results[0].key) {
-                    console.log(res.data.results[0])
                     setTrailer(res.data.results[0].key)
                 }
                 else {
@@ -35,6 +35,7 @@ function Genres(props) {
             })
     }
 
+    // Youtube players options for trailers
     const opts = {
         height: '500',
         width: '100%',
@@ -44,7 +45,7 @@ function Genres(props) {
         }
     }
 
-
+    // Rendering
     return (
         <div className='genres'>
             <h1>{props.title}</h1>

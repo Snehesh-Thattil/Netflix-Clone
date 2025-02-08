@@ -7,6 +7,7 @@ import './Banner.css'
 function Banner() {
     let [bannerMovie, setBannerMovie] = useState()
 
+    // API call for Trending shows using axios
     useEffect(() => {
         axios.get(`/trending/all/week?api_key=${API_KEY}&language=en-US`)
             .then((res) => {
@@ -19,6 +20,7 @@ function Banner() {
             })
     }, [])
 
+    // Rendering
     return (
         <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie ? bannerMovie.backdrop_path : ''})` }}>
             <div className="content">
