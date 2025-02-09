@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Movies from './Components/NavItems/Movies'
 import TVshows from './Components/NavItems/TVshows'
 import MyList from './Components/NavItems/MyList'
@@ -11,14 +11,16 @@ function App() {
   // Render
   return (
     <div className="App">
-      <Routes>
-        <Route exact element={<Home />} path='/'></Route>
-        <Route element={<Movies />} path='/movies'></Route>
-        <Route element={<TVshows />} path='/tvshows'></Route>
-        <Route element={<MyList />} path='/mylist'></Route>
-        <Route element={<NewsAndPopular />} path='/news-and-popular'></Route>
-        <Route element={<BrowseByLanguage />} path='/browsebylanguage'></Route>
-      </Routes>
+      <Router>
+        <Routes>
+          <Route exact element={<Home />} path='/'></Route>
+          <Route element={<Movies />} path='/movies'></Route>
+          <Route element={<TVshows />} path='/tvshows'></Route>
+          <Route element={<MyList />} path='/mylist'></Route>
+          <Route element={<NewsAndPopular />} path='/news-and-popular'></Route>
+          <Route element={<BrowseByLanguage />} path='/browsebylanguage'></Route>
+        </Routes>
+      </Router>
     </div>
   )
 }
