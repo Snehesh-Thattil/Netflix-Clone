@@ -1,10 +1,10 @@
-import './Genres.css'
+import './ItemsRow.css'
 import React, { useEffect, useState } from 'react'
 import { imageUrl } from '../Constants/URLs'
 import axios, { API_KEY } from '../Constants/Constants'
 import YouTube from 'react-youtube'
 
-function Genres(props) {
+function ItemsRow(props) {
     const [originals, setOriginals] = useState([])
     const [trailer, setTrailer] = useState()
 
@@ -35,6 +35,14 @@ function Genres(props) {
             })
     }
 
+    // Movie poster image URL config
+    const posterImg = (movie, isSmall) => {
+        let noPosterImage = 'https://www.whats-on-netflix.com/wp-content/uploads/2022/11/netflix-titles-unavailable-in-ad-tier-2022-jpg-e1667947056747.webp'
+
+        const imagePath = isSmall ? movie.backdrop_path : movie.poster_path;
+        return imagePath ? `${imageUrl}/${imagePath}` : noPosterImage;
+    }
+
     // Youtube players options for trailers
     const opts = {
         height: '500',
@@ -53,8 +61,8 @@ function Genres(props) {
                 {originals.map((movie) => {
                     return (
                         <div key={movie.id} className={props.isSmall ? "card isSmall" : "card"}>
-                            <img onClick={() => showTrailer(movie.id)} className='card' src={`${imageUrl}/${movie.backdrop_path ? movie.backdrop_path : "/2VFUh8spzyNbRNPyncIrFmSwBrd.jpg"}`} alt="Netflix_Originals" />
-                            <h1>{movie.name ? movie.name : movie.title}</h1>
+                            <img onClick={() => showTrailer(movie.id)} className='card' src={posterImg(movie, props.isSmall)} alt="" />
+                            <h1>{movie?.name || movie?.title || movie?.original_name}</h1>
                         </div>
                     )
                 })}
@@ -64,4 +72,4 @@ function Genres(props) {
     )
 }
 
-export default Genres
+export default ItemsRow

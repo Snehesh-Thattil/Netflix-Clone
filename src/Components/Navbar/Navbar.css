@@ -1,34 +1,37 @@
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3.5rem;
+  width: 100%;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #111;
-  opacity: 0.75;
+  gap: 2rem;
   transition: 0.2s ease-in-out;
-  z-index: 2;
+  z-index: 5;
+  background-color: black;
 }
-.navbar:hover {
-  opacity: 1;
+.navbar.transparent {
+  background-color: rgba(0, 0, 0, 0);
+}
+.navbar.show {
+  position: fixed;
+  background-color: black;
 }
 .navbar .logo {
   width: 80px;
   cursor: pointer;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .navbar .navItems {
-  width: 75%;
   display: flex;
   align-items: center;
-  justify-content: left;
   list-style: none;
-}
-.navbar .navItems li {
-  margin-right: 2rem;
+  gap: 2rem;
 }
 .navbar .navItems li a {
   text-decoration: none;

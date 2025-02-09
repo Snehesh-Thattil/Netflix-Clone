@@ -1,9 +1,11 @@
 .genres {
+    width: 100%;
     display: flex;
     flex-direction: column;
     text-align: left;
     color: #fff;
-    margin: 10px 20px;
+    margin: 10px 0;
+    padding: 0 20px;
 
     h1 {
         color: white;
@@ -11,11 +13,11 @@
     }
 
     .cards {
-        display: flex;
         padding: 10px;
-        overflow-x: scroll;
+        display: flex;
+        gap: 15px;
         overflow-y: hidden;
-        scroll-behavior: smooth;
+        overflow-x: scroll;
         text-align: center;
 
         &::-webkit-scrollbar {
@@ -23,24 +25,29 @@
         }
 
         .card {
-            max-height: 300px;
-            width: 25rem;
-            margin-right: 15px;
+            width: 15rem;
             border-radius: 7.5px;
-            transition: .25s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            object-fit: contain;
 
             &.isSmall {
-                scale: 0.9;
-            }
-
-            img {
-                &:hover {
-                    scale: 1.025;
-                }
+                scale: 0.95;
             }
 
             h1 {
                 font-size: 17.5px;
+            }
+
+            img {
+                transition: .25s ease-in-out;
+
+                &:hover {
+
+                    scale: 1.025;
+                }
             }
         }
     }

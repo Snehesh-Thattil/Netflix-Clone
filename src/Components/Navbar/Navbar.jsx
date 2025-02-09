@@ -1,11 +1,43 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
+    const navbarRef = useRef()
+
+    // Show navbar when scrolling up
+    useEffect(() => {
+        let prevScroll = window.scrollY
+
+        function handleNavbarView() {
+            if (!navbarRef || !navbarRef.current) return
+
+            let currentScroll = window.scrollY
+
+            if (currentScroll === 0) { // On the top
+                navbarRef.current.classList.add('transparent');
+                navbarRef.current.classList?.remove('show')
+            }
+            else if (prevScroll > currentScroll) { // Scroll up
+                navbarRef.current.classList?.add('show')
+                navbarRef.current.classList?.remove('transparent')
+            }
+            else {  // Scroll down
+                navbarRef.current.classList?.remove('show')
+            }
+
+            prevScroll = currentScroll
+        }
+
+        window.addEventListener('scroll', handleNavbarView)
+        return () => {
+            window.removeEventListener('scroll', handleNavbarView)
+        }
+    }, [])
+
     // Rendering
     return (
-        <div className='navbar'>
+        <div className='navbar transparent' ref={navbarRef}>
             <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png' alt="Netflix_Logo" />
             <ul className='navItems'>
                 <li><Link to="/">Home</Link></li>

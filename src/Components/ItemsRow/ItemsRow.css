@@ -1,0 +1,46 @@
+.genres {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: #fff;
+  margin: 10px 0;
+  padding: 0 20px;
+}
+.genres h1 {
+  color: white;
+  margin-left: 1rem;
+}
+.genres .cards {
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  text-align: center;
+}
+.genres .cards::-webkit-scrollbar {
+  display: none;
+}
+.genres .cards .card {
+  width: 15rem;
+  border-radius: 7.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.genres .cards .card.isSmall {
+  scale: 0.95;
+}
+.genres .cards .card h1 {
+  font-size: 17.5px;
+}
+.genres .cards .card img {
+  transition: 0.25s ease-in-out;
+}
+.genres .cards .card img:hover {
+  scale: 1.025;
+}/*# sourceMappingURL=ItemsRow.css.map */

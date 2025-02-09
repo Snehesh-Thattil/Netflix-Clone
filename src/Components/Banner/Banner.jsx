@@ -11,8 +11,7 @@ function Banner() {
     useEffect(() => {
         axios.get(`/trending/all/week?api_key=${API_KEY}&language=en-US`)
             .then((res) => {
-                // console.log(res.data.results[0])
-                let randomNum = Math.floor(Math.random() * 19)
+                let randomNum = Math.floor(Math.random() * res.data.results.length - 1)
                 setBannerMovie(res.data.results[randomNum])
             })
             .catch((err) => {
@@ -20,16 +19,23 @@ function Banner() {
             })
     }, [])
 
+    // Shorten the description when its long
+    function truncate(string, n) {
+        if (string) {
+            return string.length < n ? string : string.substr(0, n - 1) + '...'
+        }
+    }
+
     // Rendering
     return (
-        <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie ? bannerMovie.backdrop_path : ''})` }}>
+        <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie?.backdrop_path})` }}>
             <div className="content">
-                <h1 className='title'>{bannerMovie ? bannerMovie.title : "Movie Title"}</h1>
+                <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name || "Movie Title"}</h1>
                 <div className="buttons">
                     <button>Play</button>
                     <button>List</button>
                 </div>
-                <p>{bannerMovie ? bannerMovie.overview : " "}</p>
+                <p>{truncate(bannerMovie?.overview, 150)}</p>
             </div>
             <div className="fade-bottom"></div>
         </div>
