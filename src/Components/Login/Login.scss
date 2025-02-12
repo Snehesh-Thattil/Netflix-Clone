@@ -1,17 +1,29 @@
 .login {
     min-height: 100vh;
     width: 100%;
-    background: url("https://wallpapers.com/images/hd/netflix-background-gs7hjuwvv2g0e9fj.jpg");
-    object-fit: cover;
+    background: url("https://wallpapers.com/images/hd/netflix-background-gs7hjuwvv2g0e9fj.jpg") center no-repeat;
+    background-size: cover;
+
+    .bg-gradient {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(to top,
+                rgba(0, 0, 0, 0.8)0,
+                rgba(0, 0, 0, 0)60%,
+                rgba(0, 0, 0, 0.8)100%);
+    }
 
     .login_header {
-        width: 100%;
+        position: absolute;
+        top: 0;
         height: 15vh;
+        width: 100%;
         padding: 0 8rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.8000) 0.000%, rgba(0, 0, 0, 0.7889) 8.333%, rgba(0, 0, 0, 0.7556) 16.67%, rgba(0, 0, 0, 0.7000) 25.00%, rgba(0, 0, 0, 0.6222) 33.33%, rgba(0, 0, 0, 0.5222) 41.67%, rgba(0, 0, 0, 0.4000) 50.00%, rgba(0, 0, 0, 0.2778) 58.33%, rgba(0, 0, 0, 0.1778) 66.67%, rgba(0, 0, 0, 0.1000) 75.00%, rgba(0, 0, 0, 0.04444) 83.33%, rgba(0, 0, 0, 0.01111) 91.67%, rgba(0, 0, 0, 0.000) 100.0%);
+        // background: linear-gradient(180deg, rgba(0, 0, 0, 0.8000) 0.000%, rgba(0, 0, 0, 0.7889) 8.333%, rgba(0, 0, 0, 0.7556) 16.67%, rgba(0, 0, 0, 0.7000) 25.00%, rgba(0, 0, 0, 0.6222) 33.33%, rgba(0, 0, 0, 0.5222) 41.67%, rgba(0, 0, 0, 0.4000) 50.00%, rgba(0, 0, 0, 0.2778) 58.33%, rgba(0, 0, 0, 0.1778) 66.67%, rgba(0, 0, 0, 0.1000) 75.00%, rgba(0, 0, 0, 0.04444) 83.33%, rgba(0, 0, 0, 0.01111) 91.67%, rgba(0, 0, 0, 0.000) 100.0%);
 
         .login_logo {
             width: 10rem;
@@ -36,9 +48,16 @@
                 cursor: pointer;
                 width: 7.5rem;
                 height: 100%;
+                z-index: 1;
 
-                &:hover .options {
-                    display: block;
+                &:hover {
+                    .options {
+                        display: block;
+                    }
+
+                    .selected i {
+                        transform: translateY(2.5px);
+                    }
                 }
 
                 .selected {
@@ -57,6 +76,11 @@
                     align-items: center;
                     justify-content: center;
                     gap: 10px;
+
+                    i {
+                        transform: translateY(-2.5px);
+                        transition: transform .3s ease-in-out;
+                    }
 
                     p {
                         color: white;
@@ -111,19 +135,21 @@
     }
 
     .components-wrapper {
-        width: 100%;
+        position: absolute;
+        top: 15vh;
         height: 85vh;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
 
         .description {
             width: 45%;
-            height: 75%;
+            height: 70%;
             padding: 15px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
             text-align: center;
             color: white;
@@ -201,8 +227,16 @@
                         margin-right: 15px;
                     }
 
+                    i {
+                        transition: transform .3s ease-in-out;
+                    }
+
                     &:hover {
                         background-color: rgb(193, 17, 25);
+
+                        i {
+                            transform: translateX(10px);
+                        }
 
                     }
                 }

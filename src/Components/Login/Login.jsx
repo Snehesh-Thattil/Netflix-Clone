@@ -10,6 +10,7 @@ function Login() {
     // Rendering
     return (
         <div className='login'>
+            <div className="bg-gradient "></div>
             <SignInHeader signIn={signIn} setSignIn={setSignIn} />
             <div className="components-wrapper">
                 {signIn ? <SignUp /> : <Description setSignIn={setSignIn} />}
