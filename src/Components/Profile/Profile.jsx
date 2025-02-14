@@ -2,8 +2,25 @@ import React from 'react'
 import './Profile.css'
 import Navbar from '../Navbar/Navbar'
 import Plans from './innerComponents/Plans'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../Firebase/firebase-config'
+import { useSelector } from 'react-redux'
 
 function Profile() {
+  const { user } = useSelector((state) => state.user)
+
+  // Sign out user
+  function handleSignOut() {
+    signOut(auth)
+      .then(() => {
+        alert('Signed out successfully')
+      })
+      .catch((err) => {
+        console.log('Error signing out', err.message)
+      })
+  }
+
+  // Rendering
   return (
     <div className='profile'>
       <Navbar />
@@ -14,12 +31,12 @@ function Profile() {
           <img src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png" alt="netflix-profile" />
 
           <div className="details">
-            <h2>sneheshthattil75@gmail.com</h2>
+            <h2>{user.email}</h2>
 
             <div className="plans">
               <h3>Plans(Current Plan: premium)</h3>
               <Plans />
-              <button className='signOut-btn'>Sign out</button>
+              <button className='signOut-btn' onClick={handleSignOut}>Sign out</button>
             </div>
 
           </div>

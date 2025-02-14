@@ -1,21 +1,24 @@
 import React, { useRef } from 'react'
 import { auth } from '../../../Firebase/firebase-config'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
+  const navigate = useNavigate()
   const emailRef = useRef()
   const passwordRef = useRef()
 
   // User sign-up function
   function handleSignUp(e) {
     e.preventDefault()
-    
+
     createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
       .then((userAuth) => {
         console.log('|| New in user :', userAuth)
+        navigate('/')
       })
       .catch((err) => {
-        alert.log(err.message)
+        alert(err.message)
       })
   }
 
@@ -26,9 +29,10 @@ function SignUp() {
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
       .then((userAuth) => {
         console.log('|| Signed in user :', userAuth)
+        navigate('/')
       })
       .catch((err) => {
-        alert.log(err.message)
+        alert(err.message)
       })
   }
 
