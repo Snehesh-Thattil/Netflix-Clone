@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        console.log("User signed in", userAuth)
+        console.log('Signed in user :', userAuth.displayName, '|', userAuth.email)
         dispatch(
           login({
             userId: userAuth.uid,

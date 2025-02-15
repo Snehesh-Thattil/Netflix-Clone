@@ -28,7 +28,7 @@ function SignUp() {
 
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
       .then((userAuth) => {
-        console.log('|| Signed in user :', userAuth)
+        console.log('Signed in user :', userAuth.displayName, '|', userAuth.email)
         navigate('/')
       })
       .catch((err) => {
