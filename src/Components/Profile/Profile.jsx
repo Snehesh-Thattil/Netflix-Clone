@@ -34,7 +34,6 @@ function Profile() {
             <h2>{user.email}</h2>
 
             <div className="plans">
-              <h3>Plans(Current Plan: premium)</h3>
               <Plans />
               <button className='signOut-btn' onClick={handleSignOut}>Sign out</button>
             </div>

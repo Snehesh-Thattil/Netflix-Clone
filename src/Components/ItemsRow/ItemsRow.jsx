@@ -45,7 +45,7 @@ function ItemsRow(props) {
 
     // Youtube players options for trailers
     const opts = {
-        height: '500',
+        height: '100%',
         width: '100%',
         playerVars: {
             // https://developers.google.com/youtube/player_parameters
@@ -67,7 +67,9 @@ function ItemsRow(props) {
                     )
                 })}
             </div>
-            {trailer && <YouTube videoId={trailer} opts={opts} />}
+            {trailer &&
+                <YouTube className='trailer' videoId={trailer} opts={opts} />
+            }
         </div>
     )
 }

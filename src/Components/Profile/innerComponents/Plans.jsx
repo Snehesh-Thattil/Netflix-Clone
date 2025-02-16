@@ -7,28 +7,47 @@ import { loadStripe } from '@stripe/stripe-js'
 function Plans() {
   const [plans, setPlans] = useState([])
   const { user } = useSelector((state) => state.user)
+  const [subscription, setSubscription] = useState([])
 
-  // Fetching subscription plans from firebase 
+  // Fetching user subscription from firebase
   useEffect(() => {
-    const productsCollQuery = query(
-      collection(db, 'products'),
+    const payementsCollRef = collection(db, "customers", user.userId, "payments")
+
+    getDocs(payementsCollRef)
+      .then((payemntsSnap) => {
+
+        const subscriptionsArray = payemntsSnap.docs.map((paymentDoc) => {
+          return {
+            role: paymentDoc.data().payment_method_options.card.mandate_options.description,
+            current_period_start: paymentDoc.data().payment_method_options.card.mandate_options.start_date,
+            current_period_end: paymentDoc.data().payment_method_options.card.mandate_options.end_date
+          }
+        })
+        setSubscription(subscriptionsArray);
+      })
+  }, [user])
+
+  // Fetching all the subscription plans from firebase 
+  useEffect(() => {
+    const servicesCollQuery = query(
+      collection(db, 'services'),
       where("active", "==", true)
     )
 
-    getDocs(productsCollQuery)
-      .then(async (productsSnap) => {
-        const products = {}
+    getDocs(servicesCollQuery)
+      .then(async (servicesSnap) => {
+        const services = {}
 
         await Promise.all(
-          productsSnap.docs.map(async (productDoc) => {
-            products[productDoc.id] = { ...productDoc.data() }
+          servicesSnap.docs.map(async (serviceDoc) => {
+            services[serviceDoc.id] = { ...serviceDoc.data() }
 
-            const priceCollRef = collection(productDoc.ref, "prices")
+            const priceCollRef = collection(serviceDoc.ref, "prices")
 
             const pricesSnap = await getDocs(priceCollRef)
 
             pricesSnap.docs.forEach((priceDoc) => {
-              products[productDoc.id].prices = {
+              services[serviceDoc.id].prices = {
                 priceId: priceDoc.id,
                 ...priceDoc.data()
               }
@@ -36,7 +55,7 @@ function Plans() {
 
           })
         )
-        setPlans(products)
+        setPlans(services)
       })
 
   }, [])
@@ -57,7 +76,8 @@ function Plans() {
         alert(`An error occured : ${error.message}`)
       }
       if (sessionId) {
-        const stripe = await loadStripe("sk_test_51OeaO0SEmuqBAHaTBdFZ2J35PQkQSOw9kaVZwUboiTQ5JJAAPLl2UxCCSDEOYjb3OaQS6efzYGWdzYweavdfUZul00KO7o0vu4")
+        const stripe = await loadStripe("pk_test_51OeaO0SEmuqBAHaT48vffcPbZw0c9EZy9sqtF8t6be2pusSi9pGE2yCSjVFtBY9gGFC6PFAt1STd1R6NmKYbpbK3002726ciMX")
+        stripe.redirectToCheckout({ sessionId })
       }
     })
   }
@@ -65,8 +85,11 @@ function Plans() {
   // Rendering
   return (
     <div className='plans-wrapper'>
-
+      <h3>( Current Plan: {subscription[1]?.role} )</h3>
+      {subscription && <p>Renewal date: {new Date(subscription[1]?.current_period_start * 1000 + 29 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>}
       {Object.entries(plans).map(([planId, planData]) => {
+        const isCurrentPlan = planData.name?.toLowerCase().includes(subscription[1]?.role.toLowerCase())
+
         return (
           <div className="plan" key={planId} >
             <div className="info">
@@ -74,7 +97,7 @@ function Plans() {
               <h5>{planData.description}</h5>
             </div>
 
-            <button onClick={() => handleSubscribe(planData.prices.priceId)}>Subscribe</button>
+            <button className={isCurrentPlan ? 'active' : ''} onClick={() => !isCurrentPlan && handleSubscribe(planData.prices.priceId)}>{isCurrentPlan ? 'Current plan' : 'Subscribe'}</button>
           </div>
         )
       })}
