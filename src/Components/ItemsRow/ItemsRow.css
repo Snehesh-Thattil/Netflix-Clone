@@ -43,10 +43,4 @@
 }
 .genres .cards .card img:hover {
   scale: 1.025;
-}
-.genres .trailer {
-  height: 75vh;
-  width: 75vw;
-  margin: auto;
-  border: 4px solid rgb(190, 22, 22);
 }/*# sourceMappingURL=ItemsRow.css.map */

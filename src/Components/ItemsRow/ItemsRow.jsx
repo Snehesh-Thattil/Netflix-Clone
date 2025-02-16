@@ -1,12 +1,15 @@
 import './ItemsRow.css'
 import React, { useEffect, useState } from 'react'
 import { imageUrl } from '../Constants/URLs'
-import axios, { API_KEY } from '../Constants/Constants'
-import YouTube from 'react-youtube'
+import axios from '../Constants/Constants'
+import { useDispatch } from 'react-redux'
+import { inject } from '../../Redux/slices/movieSlice'
+import { useNavigate } from 'react-router-dom'
 
 function ItemsRow(props) {
     const [originals, setOriginals] = useState([])
-    const [trailer, setTrailer] = useState()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     // API calls for genre movies using axios
     useEffect(() => {
@@ -19,22 +22,6 @@ function ItemsRow(props) {
             })
     }, [props.genreUrl])
 
-    // Show trailer when clicking
-    const showTrailer = (movieId) => {
-        axios.get(`/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
-            .then((res) => {
-                if (res.data.results[0].key) {
-                    setTrailer(res.data.results[0].key)
-                }
-                else {
-                    setTrailer('UU7d4-G0gVs')
-                }
-            })
-            .catch((err) => {
-                console.log('| ERROR |', err)
-            })
-    }
-
     // Movie poster image URL config
     const posterImg = (movie, isSmall) => {
         let noPosterImage = 'https://www.whats-on-netflix.com/wp-content/uploads/2022/11/netflix-titles-unavailable-in-ad-tier-2022-jpg-e1667947056747.webp'
@@ -43,14 +30,10 @@ function ItemsRow(props) {
         return imagePath ? `${imageUrl}/${imagePath}` : noPosterImage;
     }
 
-    // Youtube players options for trailers
-    const opts = {
-        height: '100%',
-        width: '100%',
-        playerVars: {
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 0,
-        }
+    // Navigate to show movie Trailer
+    function handleShowTrailer(movie) {
+        dispatch(inject(movie))
+        navigate('/trailer')
     }
 
     // Rendering
@@ -61,15 +44,12 @@ function ItemsRow(props) {
                 {originals.map((movie) => {
                     return (
                         <div key={movie.id} className={props.isSmall ? "card isSmall" : "card"}>
-                            <img onClick={() => showTrailer(movie.id)} className='card' src={posterImg(movie, props.isSmall)} alt="" />
+                            <img onClick={() => handleShowTrailer(movie)} className='card' src={posterImg(movie, props.isSmall)} alt="" />
                             <h1>{movie?.name || movie?.title || movie?.original_name}</h1>
                         </div>
                     )
                 })}
             </div>
-            {trailer &&
-                <YouTube className='trailer' videoId={trailer} opts={opts} />
-            }
         </div>
     )
 }

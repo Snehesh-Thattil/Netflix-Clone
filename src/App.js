@@ -13,6 +13,7 @@ import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './Redux/slices/userSlice'
 import Profile from './Components/Profile/Profile';
+import Trailer from './Components/Trailer/Trailer';
 
 function App() {
   const dispatch = useDispatch()
@@ -47,6 +48,7 @@ function App() {
           <Routes>
             <Route exact element={<Home />} path='/'></Route>
             <Route element={<Profile />} path='/profile'></Route>
+            <Route element={<Trailer />} path='/trailer' ></Route>
             <Route element={<Movies />} path='/movies'></Route>
             <Route element={<TVshows />} path='/tvshows'></Route>
             <Route element={<MyList />} path='/mylist'></Route>

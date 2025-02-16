@@ -1,0 +1,15 @@
+.Movie {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    .trailer {
+        width: 100%;
+        height: fit-content;
+        border: 5px solid rgb(160, 47, 53);
+        object-fit: contain;
+        background-color: rgb(160, 47, 53);
+    }
+}
