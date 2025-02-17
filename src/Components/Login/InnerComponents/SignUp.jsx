@@ -13,8 +13,7 @@ function SignUp() {
     e.preventDefault()
 
     createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-      .then((userAuth) => {
-        console.log('|| New in user :', userAuth)
+      .then(() => {
         navigate('/')
       })
       .catch((err) => {
@@ -27,8 +26,7 @@ function SignUp() {
     e.preventDefault()
 
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-      .then((userAuth) => {
-        console.log('Signed in user :', userAuth.displayName, '|', userAuth.email)
+      .then(() => {
         navigate('/')
       })
       .catch((err) => {

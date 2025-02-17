@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Movies from './Components/NavItems/Movies'
 import TVshows from './Components/NavItems/TVshows'
 import MyList from './Components/NavItems/MyList'

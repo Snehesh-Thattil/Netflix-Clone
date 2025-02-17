@@ -43,4 +43,22 @@
 }
 .genres .cards .card img:hover {
   scale: 1.025;
+}
+
+@media screen and (max-width: 768px) {
+  .genres {
+    text-align: center;
+    padding: 0 15px;
+  }
+  .genres h1 {
+    color: white;
+    margin-left: 0;
+    scale: 0.75;
+  }
+  .genres .cards {
+    gap: 10px;
+  }
+  .genres .cards .card {
+    width: 10rem;
+  }
 }/*# sourceMappingURL=ItemsRow.css.map */

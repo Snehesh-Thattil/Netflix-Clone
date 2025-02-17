@@ -52,3 +52,25 @@
         }
     }
 }
+
+// MEDIA-QUERIES RESPONSIVENESS
+@media screen and (max-width:768px) {
+    .genres {
+        text-align: center;
+        padding: 0 15px;
+
+        h1 {
+            color: white;
+            margin-left: 0;
+            scale: 0.75;
+        }
+
+        .cards {
+            gap: 10px;
+
+            .card {
+                width: 10rem;
+            }
+        }
+    }
+}
