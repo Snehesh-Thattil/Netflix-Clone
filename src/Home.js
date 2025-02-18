@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from './Components/Banner/Banner';
 import Navbar from './Components/Navbar/Navbar';
 import ItemsRow from './Components/ItemsRow/ItemsRow';
-import { categories } from './Components/Constants/URLs'
+import { categories } from './APIs/URLs';
 
 function Home() {
     // Rendering

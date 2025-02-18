@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import './Login.css'
 import Description from './Description/Description'
 import SignUp from './SignUp/SignUp'
-import SignInHeader from './SignInHeader/SignInHeader'
+import LoginHeader from './LoginHeader/LoginHeader'
 import Footer from '../Footer/Footer'
 
 function Login() {
@@ -14,7 +14,7 @@ function Login() {
         <div className='login'>
             <div className="main-view" ref={mainViewRef}>
                 <div className="bg-gradient "></div>
-                <SignInHeader signIn={signIn} setSignIn={setSignIn} />
+                <LoginHeader signIn={signIn} setSignIn={setSignIn} />
                 <div className="components-wrapper">
                     {signIn ? <SignUp /> : <Description mainViewRef={mainViewRef} setSignIn={setSignIn} />}
                 </div>

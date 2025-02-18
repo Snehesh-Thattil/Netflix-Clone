@@ -1,7 +1,7 @@
 import React from 'react'
 import './Profile.css'
 import Navbar from '../Navbar/Navbar'
-import Plans from './innerComponents/Plans'
+import Plans from './Plans/Plans'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../Firebase/firebase-config'
 import { useSelector } from 'react-redux'

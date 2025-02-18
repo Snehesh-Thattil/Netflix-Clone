@@ -1,9 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import './SignInHeader.css'
+import './LoginHeader.css'
 import Languages from '../LangsDropdown/Languages'
 
-function SignInHeader({ signIn, setSignIn }) {
+function LoginHeader({ signIn, setSignIn }) {
     const navigate = useNavigate()
 
     // Rendering
@@ -19,4 +19,4 @@ function SignInHeader({ signIn, setSignIn }) {
     )
 }
 
-export default SignInHeader
+export default LoginHeader

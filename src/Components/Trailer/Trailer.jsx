@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Trailer.css'
 import YouTube from 'react-youtube'
-import axios, { API_KEY } from '../Constants/Constants'
+import axios, { API_KEY } from '../../APIs/Constants'
 import { useSelector } from 'react-redux'
 import Navbar from '../Navbar/Navbar'
 

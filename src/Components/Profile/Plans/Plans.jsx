@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { db } from '../../../Firebase/firebase-config'
 import { useSelector } from 'react-redux'
 import { loadStripe } from '@stripe/stripe-js'
+import './Plans.css'
 
 function Plans() {
   const [plans, setPlans] = useState([])
