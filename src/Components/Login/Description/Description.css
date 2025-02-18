@@ -1,0 +1,160 @@
+.description {
+  width: 45%;
+  height: 70%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.description.footer {
+  width: 65%;
+  height: 15rem;
+}
+.description h1 {
+  font-size: 3.25rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.description h2 {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.description p {
+  color: rgb(255, 255, 255);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+.description form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 3.5rem;
+  width: 100%;
+}
+.description form input {
+  width: 67.4%;
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid gray;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.719);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.description form input:focus {
+  outline: 2px solid wheat;
+  box-shadow: 0 0 5px black;
+}
+.description form input::-moz-placeholder {
+  color: white;
+  font-size: small;
+}
+.description form input::placeholder {
+  color: white;
+  font-size: small;
+}
+.description form .get-started {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: none;
+  width: 32.5%;
+  height: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  background-color: rgb(245, 7, 19);
+  color: rgb(255, 255, 255);
+}
+.description form .get-started p {
+  font-weight: 900;
+}
+.description form .get-started i {
+  transition: transform 0.3s ease-in-out;
+}
+.description form .get-started:hover {
+  background-color: rgb(193, 17, 25);
+}
+.description form .get-started:hover i {
+  transform: translateX(10px);
+}
+
+@media screen and (max-width: 767px) {
+  .description {
+    width: 85%;
+  }
+  .description.footer {
+    width: 100%;
+  }
+  .description h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  }
+  .description h2 {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  .description p {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  .description form {
+    height: 7.5rem;
+    gap: 15px;
+    flex-direction: column;
+  }
+  .description form input {
+    height: 50%;
+    width: 90%;
+    padding: 1rem;
+  }
+  .description form .get-started {
+    height: 50%;
+    width: 90%;
+  }
+  .description form .get-started p {
+    font-size: 20px;
+    margin-right: unset;
+  }
+}
+@media (min-width: 767px) and (max-width: 1024px) {
+  .description {
+    width: 80%;
+  }
+  .description.footer {
+    width: 100%;
+  }
+  .description.footer form {
+    height: 7.5rem;
+    flex-direction: column;
+  }
+  .description.footer form input {
+    width: 90%;
+  }
+  .description.footer form .get-started {
+    width: 90%;
+  }
+  .description form {
+    height: 4rem;
+  }
+}/*# sourceMappingURL=Description.css.map */

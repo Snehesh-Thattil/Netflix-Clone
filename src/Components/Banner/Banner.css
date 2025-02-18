@@ -54,8 +54,14 @@
   background: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.35), #111);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .banner {
     height: 400px;
+  }
+  .banner .content {
+    padding: 160px 0 0 35px;
+  }
+  .banner .content p {
+    max-width: 90%;
   }
 }/*# sourceMappingURL=Banner.css.map */

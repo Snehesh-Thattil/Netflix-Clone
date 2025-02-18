@@ -1,345 +1,41 @@
 .login {
-    min-height: 100vh;
     width: 100%;
-    background: url("https://wallpapers.com/images/hd/netflix-background-gs7hjuwvv2g0e9fj.jpg") center no-repeat;
-    background-size: cover;
 
-    .bg-gradient {
+    .main-view {
+        min-height: 100vh;
         width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.1);
-        background-image: linear-gradient(to top,
-                rgba(0, 0, 0, 0.8)0,
-                rgba(0, 0, 0, 0)60%,
-                rgba(0, 0, 0, 0.8)100%);
-    }
+        background: url("https://wallpapers.com/images/hd/netflix-background-gs7hjuwvv2g0e9fj.jpg") center no-repeat;
+        background-size: cover;
 
-    .login_header {
-        position: absolute;
-        top: 0;
-        height: 15vh;
-        width: 100%;
-        padding: 0 8rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        // background: linear-gradient(180deg, rgba(0, 0, 0, 0.8000) 0.000%, rgba(0, 0, 0, 0.7889) 8.333%, rgba(0, 0, 0, 0.7556) 16.67%, rgba(0, 0, 0, 0.7000) 25.00%, rgba(0, 0, 0, 0.6222) 33.33%, rgba(0, 0, 0, 0.5222) 41.67%, rgba(0, 0, 0, 0.4000) 50.00%, rgba(0, 0, 0, 0.2778) 58.33%, rgba(0, 0, 0, 0.1778) 66.67%, rgba(0, 0, 0, 0.1000) 75.00%, rgba(0, 0, 0, 0.04444) 83.33%, rgba(0, 0, 0, 0.01111) 91.67%, rgba(0, 0, 0, 0.000) 100.0%);
-
-        .login_logo {
-            width: 10rem;
-            cursor: pointer;
-            object-fit: contain;
+        .bg-gradient {
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.8)0,
+                    rgba(0, 0, 0, 0)60%,
+                    rgba(0, 0, 0, 0.8)100%);
         }
 
-        .buttons {
+        .components-wrapper {
+            position: absolute;
+            top: 15vh;
+            height: 85vh;
+            width: 100%;
             display: flex;
-            gap: 10px;
-            height: 2.5rem;
-
-            .languages {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: rgba(0, 0, 0, 0.493);
-                color: white;
-                border: .5px solid gray;
-                border-radius: 5px;
-                cursor: pointer;
-                width: 7.5rem;
-                height: 100%;
-                z-index: 1;
-
-                &:hover {
-                    .options {
-                        display: block;
-                    }
-
-                    .selected i {
-                        transform: translateY(2.5px);
-                    }
-                }
-
-                .selected {
-                    padding: 0 5px;
-                    width: 100%;
-                    height: 100%;
-                    background-color: transparent;
-                    border: 1px solid gray;
-                    color: white;
-                    font-weight: bold;
-                    outline: none;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 10px;
-
-                    i {
-                        transform: translateY(-2.5px);
-                        transition: transform .3s ease-in-out;
-                    }
-
-                    p {
-                        color: white;
-                    }
-                }
-
-                .options {
-                    width: 100%;
-                    display: none;
-                    background-color: rgba(143, 143, 143, 0.288);
-                    position: absolute;
-                    top: 100%;
-                    border-radius: 6px;
-
-                    button {
-                        width: 100%;
-                        height: 2.5rem;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        font-weight: 600;
-                        background: transparent;
-                        background-color: transparent;
-                        color: white;
-                        outline: none;
-                        border: none;
-
-                        &:hover {
-                            background-color: black;
-                            color: white;
-                            border: .2px solid gray;
-                        }
-                    }
-                }
-            }
-
-            .signin-btn {
-                width: 6rem;
-                padding: 10px 20px;
-                outline: none;
-                border: none;
-                background-color: rgb(245, 7, 19);
-                color: white;
-                font-weight: 800;
-                border-radius: 0.25rem;
-                cursor: pointer;
-
-                &:hover {
-                    background: rgb(193, 17, 25);
-                }
-            }
+            align-items: center;
+            justify-content: center;
         }
     }
+}
 
-    .components-wrapper {
-        position: absolute;
-        top: 15vh;
-        height: 85vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
-        .description {
-            width: 45%;
-            height: 70%;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            text-align: center;
-            color: white;
-
-            h1 {
-                font-size: 3.25rem;
-                font-weight: 700;
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-            }
-
-            h2 {
-                color: rgb(255, 255, 255);
-                font-size: 1.25rem;
-                font-weight: 600;
-                line-height: 1.5;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            }
-
-            p {
-                color: rgb(255, 255, 255);
-                font-size: 1.25rem;
-                font-weight: 500;
-                line-height: 1.5;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-            }
-
-            form {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-                height: 3.5rem;
-                width: 100%;
-
-                input {
-                    font-size: 1rem;
-                    width: 62.4%;
-                    height: 100%;
-                    padding: 1.5rem;
-                    border-radius: 0.25rem;
-                    border: 1px solid gray;
-                    outline: none;
-                    background-color: rgba(0, 0, 0, 0.719);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-
-                    &:focus {
-                        outline: 2px solid wheat;
-                        box-shadow: 0 0 5px black;
-                    }
-
-                    &::placeholder {
-                        color: white;
-                    }
-                }
-
-                .get-started {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    border: none;
-                    width: 37.5%;
-                    height: 100%;
-                    padding: 0.75rem 1.5rem;
-                    border-radius: 0.25rem;
-                    cursor: pointer;
-                    background-color: rgb(245, 7, 19);
-                    color: rgb(255, 255, 255);
-
-                    p {
-                        font-size: x-large;
-                        font-weight: 900;
-                        margin-right: 15px;
-                    }
-
-                    i {
-                        transition: transform .3s ease-in-out;
-                    }
-
-                    &:hover {
-                        background-color: rgb(193, 17, 25);
-
-                        i {
-                            transform: translateX(10px);
-                        }
-
-                    }
-                }
-            }
-        }
-
-        .signUp {
-            width: 30%;
-            height: 95%;
-            padding: 4rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-
-            h1 {
-                color: white;
-                font-size: xx-large;
-                text-align: left;
-                width: 100%;
-            }
-
-            form {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                gap: 10px;
-
-                input {
-                    font-size: 1rem;
-                    width: 100%;
-                    height: 3rem;
-                    padding: 1.5rem;
-                    border-radius: 0.25rem;
-                    border: 1px solid gray;
-                    outline: none;
-                    background-color: rgba(0, 0, 0, 0.719);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-
-                    &:focus {
-                        outline: 2px solid wheat;
-                        box-shadow: 0 0 5px black;
-                    }
-
-                    &::placeholder {
-                        color: rgb(121, 119, 119);
-                    }
-                }
-
-                button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    border: none;
-                    width: 100%;
-                    height: 100%;
-                    padding: 0.75rem 1.5rem;
-                    border-radius: 0.25rem;
-                    font-weight: bold;
-                    cursor: pointer;
-                    background-color: rgb(245, 7, 19);
-                    color: rgb(255, 255, 255);
-
-                    &:hover {
-                        background-color: rgb(193, 17, 25);
-
-                    }
-                }
-            }
-
-            a {
-                text-decoration: none;
-                color: white;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            h4 {
-                color: rgb(163, 162, 162);
-
-                a {
-                    margin: 0 5px;
-                }
-            }
-
-            p {
-                color: rgb(128, 128, 128);
-                font-size: 12px;
-                text-align: justify;
-
-                a {
-                    color: #0071eb;
-                    font-size: 13px;
-                }
-
+// MEDIA-QUERIES RESPONSIVENESS
+@media screen and (max-width: 767px) {
+    .login {
+        .main-view {
+            .components-wrapper {
+                top: 10vh;
             }
         }
     }

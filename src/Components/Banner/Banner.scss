@@ -64,8 +64,16 @@
 
 
 // MEDIA-QUERIES RESPONSIVENESS
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .banner {
         height: 400px;
+
+        .content {
+            padding: 160px 0 0 35px;
+
+            p {
+                max-width: 90%;
+            }
+        }
     }
 }

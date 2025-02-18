@@ -1,0 +1,53 @@
+.login_header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15vh;
+  padding: 0 8rem;
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.login_header .login_logo {
+  width: 10rem;
+  cursor: pointer;
+}
+.login_header .buttons {
+  display: flex;
+  gap: 10px;
+  height: 2.5rem;
+}
+.login_header .buttons .signin-btn {
+  width: 6rem;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  background-color: rgb(245, 7, 19);
+  color: white;
+  font-weight: 800;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.login_header .buttons .signin-btn:hover {
+  background: rgb(193, 17, 25);
+}
+
+@media screen and (max-width: 767px) {
+  .login_header {
+    padding: 0 2rem;
+    height: 10vh;
+  }
+  .login_header .login_logo {
+    width: 5rem;
+  }
+  .login_header .buttons {
+    gap: 5px;
+    width: auto;
+  }
+  .login_header .buttons .signin-btn {
+    width: 5rem;
+    padding: 8px 16px;
+  }
+}/*# sourceMappingURL=SignInHeader.css.map */

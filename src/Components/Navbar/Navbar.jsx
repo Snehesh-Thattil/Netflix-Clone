@@ -17,7 +17,7 @@ function Navbar() {
             let currentScroll = window.scrollY
 
             if (currentScroll === 0) { // On the top
-                navbarRef.current.classList.add('transparent');
+                navbarRef.current.classList?.add('transparent')
                 navbarRef.current.classList?.remove('show')
             }
             else if (prevScroll > currentScroll) { // Scroll up
@@ -37,9 +37,10 @@ function Navbar() {
         }
     }, [])
 
+    // Close mobile nav-menu on outside click
     useEffect(() => {
         const handleClickOutside = (event) => { // Click outside nav panel
-            if (navToggleRef.current && !navToggleRef.current.contains(event.target)) {
+            if (!navToggleRef.current?.contains(event.target) && !event.target?.classList.contains('fa-solid')) {
                 navToggleRef.current?.classList.remove('active')
             }
         }
@@ -55,7 +56,7 @@ function Navbar() {
     return (
         <div className='navbar transparent' ref={navbarRef}>
             <img className='logo' src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png' alt="Netflix_Logo" onClick={() => navigate('/')} />
-            <div className="nav-items-wrapper" onClick={() => navToggleRef.current.classList.toggle('active')}>
+            <div className="nav-items-wrapper" onClick={() => navToggleRef.current?.classList.toggle('active')}>
                 <div className="nav-toggler">
                     <i className="fa-solid fa-bars"></i>
                     <i className="fa-solid fa-caret-down"></i>

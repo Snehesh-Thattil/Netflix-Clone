@@ -1,0 +1,60 @@
+.Footer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
+  color: white;
+  text-align: left;
+}
+.Footer .description-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Footer h4 a {
+  text-decoration: underline;
+  color: white;
+  cursor: pointer;
+}
+.Footer .links {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.Footer .links .box {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.Footer .links .box a {
+  margin: 5px 0;
+  color: rgb(221, 208, 208);
+}
+
+@media screen and (max-width: 768px) {
+  .Footer {
+    padding-bottom: 2rem;
+  }
+  .Footer .links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .Footer .links .box {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .Footer .end {
+    margin-top: 20px;
+  }
+}/*# sourceMappingURL=Footer.css.map */

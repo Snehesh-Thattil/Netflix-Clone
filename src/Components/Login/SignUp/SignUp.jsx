@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { auth } from '../../../Firebase/firebase-config'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import './SignUp.css'
 
 function SignUp() {
   const navigate = useNavigate()

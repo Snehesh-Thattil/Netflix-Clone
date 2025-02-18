@@ -11,3 +11,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+section {
+  padding: 0 10%;
+}

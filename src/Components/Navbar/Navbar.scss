@@ -81,7 +81,7 @@
                 i {
                     transform: translateX(-20px);
                     display: unset;
-                    color: rgb(193, 17, 25);
+                    color: rgb(218, 10, 21);
                 }
             }
 
@@ -99,7 +99,7 @@
                 border-radius: 10px;
                 background-color: rgb(22, 22, 22);
                 transform: scale(0);
-                transition: transform ease-in-out .35s;
+                transition: transform ease-in-out .5s;
 
                 &.active {
                     transform: scale(1);
