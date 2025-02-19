@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import './Trailer.css'
+import './PlayMovie.css'
 import YouTube from 'react-youtube'
 import axios, { API_KEY } from '../../APIs/Constants'
 import { useSelector } from 'react-redux'
-import Navbar from '../Navbar/Navbar'
 
-function Trailer() {
+function PlayMovie() {
     const [trailer, setTrailer] = useState()
     const { movie } = useSelector((state) => state.movie)
 
@@ -40,11 +39,10 @@ function Trailer() {
 
     // Rendering
     return (
-        <div className='Movie'>
-            <Navbar />
+        <div className='PlayMovie'>
             <YouTube className="trailer" videoId={trailer} opts={opts} />
         </div>
     )
 }
 
-export default Trailer
+export default PlayMovie

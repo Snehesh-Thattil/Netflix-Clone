@@ -1,11 +1,11 @@
-.Movie {
+.PlayMovie {
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   margin-top: 4rem;
 }
-.Movie .trailer {
+.PlayMovie .trailer {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -13,4 +13,10 @@
   -o-object-fit: contain;
      object-fit: contain;
   background-color: rgb(160, 47, 53);
-}/*# sourceMappingURL=Trailer.css.map */
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+  .PlayMovie {
+    margin-top: 6rem;
+  }
+}/*# sourceMappingURL=PlayMovie.css.map */

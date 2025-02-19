@@ -1,7 +1,7 @@
 import React from 'react'
-import './Description.css'
+import './GetStarted.css'
 
-function Description({ mainViewRef, setSignIn, isFooter }) {
+function GetStarted({ mainViewRef, setSignIn, isFooter }) {
 
     function handleGetStartedClick() {
         setSignIn(true)
@@ -27,4 +27,4 @@ function Description({ mainViewRef, setSignIn, isFooter }) {
     )
 }
 
-export default Description
+export default GetStarted

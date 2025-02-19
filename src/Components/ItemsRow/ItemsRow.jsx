@@ -33,7 +33,7 @@ function ItemsRow(props) {
     // Navigate to show movie Trailer
     function handleShowTrailer(movie) {
         dispatch(inject(movie))
-        navigate('/trailer')
+        navigate('/play-movie')
     }
 
     // Rendering

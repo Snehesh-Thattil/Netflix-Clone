@@ -1,13 +1,13 @@
 import React from 'react'
 import './Footer.css'
-import Description from '../Login/Description/Description'
-import Languages from '../Login/LangsDropdown/Languages'
+import GetStarted from '../GetStarted/GetStarted'
+import Languages from '../LangsDropdown/Languages'
 
 function Footer({ mainViewRef, setSignIn, loggedIn }) {
     return (
         <section className='Footer'>
             {!loggedIn && <div className="description-wrapper">
-                <Description mainViewRef={mainViewRef} setSignIn={setSignIn} isFooter />
+                <GetStarted mainViewRef={mainViewRef} setSignIn={setSignIn} isFooter />
             </div>}
             <h4>Questions? Call <a href="000-800-919-1743" type='Call'>000-800-919-1743</a></h4>
             <div className="links">

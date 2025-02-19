@@ -1,4 +1,4 @@
-.Movie {
+.PlayMovie {
     width: 100%;
     min-height: 100vh;
     display: flex;
@@ -11,5 +11,13 @@
         border: 5px solid rgb(160, 47, 53);
         object-fit: contain;
         background-color: rgb(160, 47, 53);
+    }
+}
+
+
+// MEDIA-QUERIES RESPONSIVENESS
+@media (min-width:767px) and (max-width:1024px) {
+    .PlayMovie {
+        margin-top: 6rem;
     }
 }

@@ -16,11 +16,14 @@
   height: 250px;
   margin-bottom: 2rem;
   text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .banner .content .title {
+  text-align: left;
   font-size: 3rem;
   font-weight: 800;
-  padding: 0.3rem 0;
   text-shadow: 1px 1px 1px #000, 3px 3px 5px #000;
 }
 .banner .content .buttons {
@@ -44,7 +47,6 @@
 .banner .content p {
   max-width: 22.5rem;
   line-height: 1.3;
-  padding-top: 1rem;
   font-size: 0.9rem;
   text-shadow: 1px 1px 1px #000;
 }
@@ -59,7 +61,10 @@
     height: 400px;
   }
   .banner .content {
-    padding: 160px 0 0 35px;
+    padding: 150px 0 0 35px;
+  }
+  .banner .content .title {
+    font-size: 2rem;
   }
   .banner .content p {
     max-width: 90%;

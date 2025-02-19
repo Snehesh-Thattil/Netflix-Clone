@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import Home from './Home';
+import Home from './Pages/Home';
+import Profile from './Pages/Profile'
+import Play from './Pages/Play';
+import SignIn from './Pages/SignIn';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './Firebase/firebase-config';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from './Redux/slices/userSlice'
 import Movies from './Components/NavItems/Movies'
 import TVshows from './Components/NavItems/TVshows'
 import MyList from './Components/NavItems/MyList'
 import NewsAndPopular from './Components/NavItems/NewsAndPopular'
 import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
-import Login from './Components/Login/Login';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './Firebase/firebase-config';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from './Redux/slices/userSlice'
-import Profile from './Components/Profile/Profile';
-import Trailer from './Components/Trailer/Trailer';
 
 function App() {
   const dispatch = useDispatch()
@@ -43,12 +43,13 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {!user ? <Login />
+        {!user ? <SignIn />
           :
           <Routes>
             <Route exact element={<Home />} path='/'></Route>
             <Route element={<Profile />} path='/profile'></Route>
-            <Route element={<Trailer />} path='/trailer' ></Route>
+            <Route element={<Play />} path='/play-movie' ></Route>
+
             <Route element={<Movies />} path='/movies'></Route>
             <Route element={<TVshows />} path='/tvshows'></Route>
             <Route element={<MyList />} path='/mylist'></Route>

@@ -1,42 +1,36 @@
-.profile {
-  width: 100%;
-  height: 100vh;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-items: flex-start;
-}
-.profile .profile-body {
+.profile-body {
   width: 50%;
   margin-top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
+  color: white;
 }
-.profile .profile-body h1 {
+.profile-body h1 {
   font-size: 50px;
   font-weight: 400;
   border-bottom: 1px solid #282c2d;
   margin-bottom: 20px;
 }
-.profile .profile-body .profile-info {
+.profile-body .profile-info {
   display: flex;
   gap: 15px;
 }
-.profile .profile-body .profile-info img {
+.profile-body .profile-info img {
   height: 100px;
 }
-.profile .profile-body .profile-info .details {
+.profile-body .profile-info .details {
   color: white;
   flex: 1;
 }
-.profile .profile-body .profile-info .details h2 {
+.profile-body .profile-info .details h2 {
   background-color: gray;
   font-size: 15px;
   padding: 15px;
   padding-left: 20px;
 }
-.profile .profile-body .profile-info .details .plans .signOut-btn {
+.profile-body .profile-info .details .plans .signOut-btn {
   width: 100%;
   background: rgb(193, 17, 25);
   border: none;
@@ -48,35 +42,35 @@
   cursor: pointer;
   color: white;
 }
-.profile .profile-body .profile-info .details .plans .signOut-btn:hover {
+.profile-body .profile-info .details .plans .signOut-btn:hover {
   background-color: rgb(245, 7, 19);
 }
 
 @media screen and (max-width: 767px) {
-  .profile .profile-body {
+  .profile-body {
     width: 75%;
     margin-top: 7rem;
   }
-  .profile .profile-body h1 {
+  .profile-body h1 {
     font-size: 25px;
     margin-bottom: 5px;
   }
-  .profile .profile-body .profile-info {
+  .profile-body .profile-info {
     flex-direction: column;
     gap: 10px;
   }
-  .profile .profile-body .profile-info img {
+  .profile-body .profile-info img {
     height: 75px;
     width: 75px;
   }
-  .profile .profile-body .profile-info .details h2 {
+  .profile-body .profile-info .details h2 {
     padding: 10px;
     padding-left: 10px;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  .profile .profile-body {
-    margin-top: 12.5rem;
+  .profile-body {
+    margin-top: 15rem;
     width: 65%;
   }
-}/*# sourceMappingURL=Profile.css.map */
+}/*# sourceMappingURL=ProfileBody.css.map */

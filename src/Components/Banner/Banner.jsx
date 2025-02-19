@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import axios, { API_KEY } from '../../APIs/Constants'
-import { imageUrl } from '../../APIs/URLs'
+import axios from '../../APIs/Constants'
+import { imageUrl, categoryURLs } from '../../APIs/URLs'
 import './Banner.css'
 
 
@@ -9,7 +9,7 @@ function Banner() {
 
     // API call for Trending shows using axios
     useEffect(() => {
-        axios.get(`/trending/all/week?api_key=${API_KEY}&language=en-US`)
+        axios.get(categoryURLs.trending)
             .then((res) => {
                 let randomNum = Math.floor(Math.random() * res.data.results.length - 1)
                 setBannerMovie(res.data.results[randomNum])

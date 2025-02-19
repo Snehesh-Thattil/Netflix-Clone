@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3.5rem;
+  height: 4rem;
   width: 100%;
   padding: 1rem 1.5rem;
   background-color: black;
@@ -54,9 +54,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .navbar {
-    height: 4.5rem;
-  }
   .navbar .nav-items-wrapper .nav-toggler {
     display: flex;
     flex-direction: column;
