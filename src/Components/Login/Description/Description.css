@@ -1,5 +1,5 @@
 .description {
-  width: 45%;
+  width: 50%;
   height: 70%;
   padding: 15px;
   display: flex;
@@ -13,19 +13,24 @@
   width: 65%;
   height: 15rem;
 }
-.description h1 {
+.description .headings {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.description .headings h1 {
   font-size: 3.25rem;
   font-weight: 700;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
-.description h2 {
+.description .headings h2 {
   color: rgb(255, 255, 255);
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.5;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
-.description p {
+.description .headings p {
   color: rgb(255, 255, 255);
   font-size: 1.25rem;
   font-weight: 500;
@@ -66,13 +71,13 @@
   font-size: small;
 }
 .description form .get-started {
+  width: 32.5%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   border: none;
-  width: 32.5%;
-  height: 100%;
   padding: 0.75rem 1rem;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -99,24 +104,17 @@
   .description.footer {
     width: 100%;
   }
-  .description h1 {
+  .description .headings {
+    max-width: 90%;
+  }
+  .description .headings h1 {
     font-size: 2.25rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
   }
-  .description h2 {
-    color: rgb(255, 255, 255);
+  .description .headings h2 {
     font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.5;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
-  .description p {
-    color: rgb(255, 255, 255);
+  .description .headings p {
     font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
   .description form {
     height: 7.5rem;
@@ -140,8 +138,13 @@
 @media (min-width: 767px) and (max-width: 1024px) {
   .description {
     width: 80%;
+    margin-top: 10rem;
+  }
+  .description .headings {
+    max-width: 70%;
   }
   .description.footer {
+    margin-top: unset;
     width: 100%;
   }
   .description.footer form {

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.493);
+  background-color: rgba(0, 0, 0, 0.849);
   color: white;
   border: 0.5px solid gray;
   border-radius: 5px;
@@ -13,11 +13,15 @@
   height: 100%;
   z-index: 1;
 }
-.languages:hover .options {
-  display: block;
+.languages.show .options {
+  visibility: unset;
+  transform: translateY(0);
 }
-.languages:hover .selected i {
-  transform: translateY(2.5px);
+.languages.show .selected i {
+  transform: translateY(5px);
+}
+.languages:hover {
+  background-color: rgba(29, 28, 28, 0.493);
 }
 .languages .selected {
   padding: 0 5px;
@@ -45,11 +49,13 @@
 }
 .languages .options {
   width: 100%;
-  display: none;
+  visibility: hidden;
   background-color: rgba(143, 143, 143, 0.5);
   position: absolute;
   top: 100%;
   border-radius: 6px;
+  transform: translateY(-30px);
+  transition: transform ease-in-out 0.4s;
 }
 .languages .options button {
   width: 100%;

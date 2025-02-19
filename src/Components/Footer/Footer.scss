@@ -38,7 +38,8 @@
             width: calc(100% / 4);
 
             a {
-                margin: 5px 0;
+                margin: 7.5px 0;
+                font-size: 17.5px;
                 color: rgb(221, 208, 208);
             }
         }
@@ -49,7 +50,7 @@
 // MEDIA-QUERIES RESPONSIVENESS
 @media screen and (max-width: 768px) {
     .Footer {
-        padding-bottom: 2rem;
+        padding-bottom: 1.5rem;
 
         .links {
             width: 100%;
@@ -62,6 +63,11 @@
                 display: flex;
                 flex-direction: column;
                 width: calc(100% / 2);
+
+                a {
+                    font-size: 15px;
+                    margin: 6px 0;
+                }
             }
         }
 

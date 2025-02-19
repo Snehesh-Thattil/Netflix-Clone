@@ -11,13 +11,15 @@ function Description({ mainViewRef, setSignIn, isFooter }) {
     // Rendering
     return (
         <div className={isFooter ? "description footer" : "description"}>
-            {!isFooter && <h1>Unlimited movies, TV shows and more</h1>}
-            {!isFooter && <h2>Starts at ₹149. Cancel at any time.</h2>}
-            <p>Ready to watch? Enter your email to create or restart your membership.</p>
+            <div className="headings">
+                {!isFooter && <h1>Unlimited movies, TV shows and more</h1>}
+                {!isFooter && <h2>Starts at ₹149. Cancel at any time.</h2>}
+                <p>Ready to watch? Enter your email to create or restart your membership.</p>
+            </div>
             <form action="">
                 <input type="email" placeholder='Email address' />
                 <div className="get-started" onClick={handleGetStartedClick}>
-                    <p>Get Started </p>
+                    <p>Get Start</p>
                     <i className="fa-solid fa-chevron-right"></i>
                 </div>
             </form>

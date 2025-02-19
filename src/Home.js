@@ -1,8 +1,9 @@
 import React from 'react'
+import { categories } from './APIs/URLs';
 import Banner from './Components/Banner/Banner';
 import Navbar from './Components/Navbar/Navbar';
 import ItemsRow from './Components/ItemsRow/ItemsRow';
-import { categories } from './APIs/URLs';
+import Footer from './Components/Footer/Footer';
 
 function Home() {
     // Rendering
@@ -17,6 +18,7 @@ function Home() {
             <ItemsRow title='Comedy' genreUrl={categories.comedy} isSmall />
             <ItemsRow title='Horror' genreUrl={categories.horror} isSmall />
             <ItemsRow title='Documentaries' genreUrl={categories.documentaries} isSmall />
+            <Footer loggedIn />
         </div>
     )
 }

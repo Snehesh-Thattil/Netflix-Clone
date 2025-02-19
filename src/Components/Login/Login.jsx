@@ -4,6 +4,7 @@ import Description from './Description/Description'
 import SignUp from './SignUp/SignUp'
 import LoginHeader from './LoginHeader/LoginHeader'
 import Footer from '../Footer/Footer'
+import Faq from '../Faq/Faq'
 
 function Login() {
     const [signIn, setSignIn] = useState(false)
@@ -19,6 +20,7 @@ function Login() {
                     {signIn ? <SignUp /> : <Description mainViewRef={mainViewRef} setSignIn={setSignIn} />}
                 </div>
             </div>
+            <Faq />
             <Footer mainViewRef={mainViewRef} setSignIn={setSignIn} />
         </div>
     )
