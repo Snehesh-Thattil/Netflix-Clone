@@ -86,10 +86,10 @@ function Plans() {
   // Rendering
   return (
     <div className='plans-wrapper'>
-      <h3>( Current Plan: {subscription[1]?.role} )</h3>
-      {subscription && <p>Renewal date: {new Date(subscription[1]?.current_period_start * 1000 + 29 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>}
+      <h3>( Current Plan: {subscription[subscription.length - 1]?.role || 'Not Subscribed'} )</h3>
+      {subscription.length !== 0 && <p>Renewal date: {new Date(subscription[subscription.length - 1]?.current_period_start * 1000 + 29 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>}
       {Object.entries(plans).map(([planId, planData]) => {
-        const isCurrentPlan = planData.name?.toLowerCase().includes(subscription[1]?.role.toLowerCase())
+        const isCurrentPlan = planData.name?.toLowerCase().includes(subscription[subscription.length - 1]?.role.toLowerCase())
 
         return (
           <div className="plan" key={planId} >

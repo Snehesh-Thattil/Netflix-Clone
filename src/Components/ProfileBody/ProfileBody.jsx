@@ -3,18 +3,21 @@ import './ProfileBody.css'
 import Plans from '../Plans/Plans'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../Firebase/firebase-config'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { redirectGetStarted } from '../../Redux/slices/onboardSlice'
 
 function ProfileBody() {
   const { user } = useSelector((state) => state.user)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   // Sign out user
   function handleSignOut() {
     signOut(auth)
       .then(() => {
         alert('Signed out successfully')
+        dispatch(redirectGetStarted())
         navigate('/')
       })
       .catch((err) => {

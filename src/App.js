@@ -6,7 +6,7 @@ import Play from './Pages/Play';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './Redux/slices/userSlice'
@@ -22,18 +22,20 @@ function App() {
 
   // Checking user sign-in status
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
-      if (userAuth) {
-        console.log('Signed in user :', userAuth.displayName, '|', userAuth.email)
+    const unsubscribe = onIdTokenChanged(auth, (userAuth) => {
+      if (userAuth?.emailVerified) {
+        console.log('User logged in :', userAuth.displayName, '|', userAuth.email)
         dispatch(
           login({
             userId: userAuth.uid,
-            email: userAuth.email
+            name: userAuth.displayName,
+            email: userAuth.email,
+            emailVerified: userAuth?.emailVerified
           })
         )
       } else {
         dispatch(logout())
-        console.log("No user is logged in")
+        console.log("LoggedOut /or/ Unverified email")
       }
     })
 
@@ -66,5 +68,4 @@ function App() {
     </div>
   )
 }
-
 export default App;

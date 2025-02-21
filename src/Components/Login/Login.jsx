@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import './Login.css'
 import { auth } from '../../Firebase/firebase-config'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { useNavigate, Link } from 'react-router-dom'
+import { sendEmailVerification, signInWithEmailAndPassword } from 'firebase/auth'
+import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { redirectSignUp } from '../../Redux/slices/onboardSlice'
 
@@ -11,15 +11,21 @@ function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
   // User sign-in function
   function handleSignIn(e) {
     e.preventDefault()
 
     signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-      .then(() => {
-        navigate('/')
+      .then(async (res) => {
+        const user = res.user
+        await user.reload()
+        await user.getIdToken(true)
+
+        if (!user.emailVerified) {
+          sendEmailVerification(res.user)
+          alert("Please verify your email before logging in.")
+        }
       })
       .catch((err) => {
         alert(err.message)

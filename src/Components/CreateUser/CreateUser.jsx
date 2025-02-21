@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import './CreateUser.css'
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../Firebase/firebase-config';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { auth, db } from '../../Firebase/firebase-config';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { redirectLogin } from '../../Redux/slices/onboardSlice';
+import { doc, setDoc } from 'firebase/firestore';
+import { updateProfile } from 'firebase/auth';
 
 function CreateUser() {
     const { onboarder } = useSelector((state) => state.onboard)
     const [userData, setUserData] = useState({
-        fullName: '',
+        name: '',
         email: onboarder.email ? onboarder.email : onboarder,
         password: '',
         confirmPassword: ''
@@ -22,18 +24,43 @@ function CreateUser() {
         setUserData({ ...userData, [e.target.name]: e.target.value });
     };
 
-    // Submition of sign-up details
+    // Submition of sign-up form
     function handleSubmit(e) {
         e.preventDefault()
-        if (userData.password !== userData.confirmPassword) {
+
+        const regexInputs = {
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/
+        }
+
+        if (!regexInputs.email.test(userData.email)) {
+            alert("Oops, invalid email")
+        }
+        else if (userData.confirmPassword !== userData.password) {
             alert("Oops, passwords don't match")
         }
-        else if (!userData.email.endsWith('mail.com')) {
-            alert("Oops, invalid email")
+        else if (!regexInputs.password.test(userData.password)) {
+            alert("Hey there, password must contain one uppercase letter, one lowercase letter, and one special character")
         }
         else {
             createUserWithEmailAndPassword(auth, userData.email, userData.password)
+                .then((res) => {
+                    sendEmailVerification(res.user)
+                        .then(() => {
+                            alert('Hey there, check the verification mail in your inbox for Login')
+                        }).catch((err) => alert(err.message))
+                    return res
+                })
+                .then((res) => {
+                    updateProfile(res.user, { displayName: userData.name })
+                    return res
+                })
+                .then((res) => {
+                    const docRef = doc(db, "customers", res.user.uid)
+                    setDoc(docRef, { name: userData.name }, { merge: true })
+                })
                 .then(() => {
+                    dispatch(redirectLogin({ email: userData.email, name: userData.name }))
                     navigate('/')
                 })
                 .catch((err) => {
@@ -54,9 +81,9 @@ function CreateUser() {
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
-                            name="fullName"
+                            name="name"
                             placeholder="Name"
-                            value={userData.fullName}
+                            value={userData.name}
                             onChange={handleChange}
                             required
                         />
