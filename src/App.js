@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import Profile from './Pages/Profile'
 import Play from './Pages/Play';
 import SignIn from './Pages/SignIn';
+import SignUp from './Pages/SignUp';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
@@ -43,18 +44,22 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {!user ? <SignIn />
+        {!user ?
+          <Routes>
+            <Route element={<SignIn />} path='/' />
+            <Route element={<SignUp />} path='/sign-up' />
+          </Routes>
           :
           <Routes>
-            <Route exact element={<Home />} path='/'></Route>
-            <Route element={<Profile />} path='/profile'></Route>
-            <Route element={<Play />} path='/play-movie' ></Route>
+            <Route exact element={<Home />} path='/' />
+            <Route element={<Profile />} path='/profile' />
+            <Route element={<Play />} path='/play-movie' />
 
-            <Route element={<Movies />} path='/movies'></Route>
-            <Route element={<TVshows />} path='/tvshows'></Route>
-            <Route element={<MyList />} path='/mylist'></Route>
-            <Route element={<NewsAndPopular />} path='/news-and-popular'></Route>
-            <Route element={<BrowseByLanguage />} path='/browsebylanguage'></Route>
+            <Route element={<Movies />} path='/movies' />
+            <Route element={<TVshows />} path='/tvshows' />
+            <Route element={<MyList />} path='/mylist' />
+            <Route element={<NewsAndPopular />} path='/news-and-popular' />
+            <Route element={<BrowseByLanguage />} path='/browsebylanguage' />
           </Routes>
         }
       </Router>

@@ -24,7 +24,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .login-view .main-view .components-wrapper {
+  .components-wrapper {
     top: 10vh;
   }
-}/*# sourceMappingURL=LoginView.css.map */
+}/*# sourceMappingURL=Landing.css.map */

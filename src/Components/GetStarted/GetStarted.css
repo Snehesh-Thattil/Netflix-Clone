@@ -13,6 +13,10 @@
   width: 65%;
   height: 15rem;
 }
+.description.footer .headings h1,
+.description.footer .headings h2 {
+  display: none;
+}
 .description .headings {
   display: flex;
   flex-direction: column;
@@ -57,6 +61,7 @@
   align-items: center;
   justify-content: center;
   color: white;
+  font-size: large;
 }
 .description form input:focus {
   outline: 2px solid wheat;
@@ -78,7 +83,7 @@
   justify-content: center;
   gap: 20px;
   border: none;
-  padding: 0.75rem 1rem;
+  padding: 1.5rem 1rem;
   border-radius: 0.25rem;
   cursor: pointer;
   background-color: rgb(245, 7, 19);
@@ -129,6 +134,7 @@
   .description form .get-started {
     height: 50%;
     width: 90%;
+    padding: 1rem;
   }
   .description form .get-started p {
     font-size: 20px;
@@ -159,5 +165,14 @@
   }
   .description form {
     height: 4rem;
+  }
+  .description form input {
+    font-size: larger;
+  }
+  .description form input::-moz-placeholder {
+    font-size: medium;
+  }
+  .description form input::placeholder {
+    font-size: medium;
   }
 }/*# sourceMappingURL=GetStarted.css.map */

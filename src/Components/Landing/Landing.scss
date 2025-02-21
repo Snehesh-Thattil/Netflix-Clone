@@ -31,12 +31,8 @@
 
 
 // MEDIA-QUERIES RESPONSIVENESS
-@media screen and (max-width: 767px) {
-    .login-view {
-        .main-view {
-            .components-wrapper {
-                top: 10vh;
-            }
-        }
+@media screen and (max-width:767px) {
+    .components-wrapper {
+        top: 10vh;
     }
 }

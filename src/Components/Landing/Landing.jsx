@@ -1,13 +1,14 @@
-import React, { useRef, useState } from 'react'
-import './LoginView.css'
+import React, { useRef } from 'react'
+import './Landing.css'
 import LoginHeader from '../LoginHeader/LoginHeader'
 import Login from '../Login/Login'
 import GetStarted from '../GetStarted/GetStarted'
 import Faq from '../Faq/Faq'
 import Footer from '../Footer/Footer'
+import { useSelector } from 'react-redux'
 
-function LoginView() {
-    const [signIn, setSignIn] = useState(false)
+function Landing() {
+    const { render } = useSelector((state) => state.onboard)
     const mainViewRef = useRef()
 
     // Rendering
@@ -15,15 +16,16 @@ function LoginView() {
         <div className="login-view">
             <div className="main-view" ref={mainViewRef}>
                 <div className="bg-gradient "></div>
-                <LoginHeader signIn={signIn} setSignIn={setSignIn} />
+                <LoginHeader />
                 <div className="components-wrapper">
-                    {signIn ? <Login /> : <GetStarted mainViewRef={mainViewRef} setSignIn={setSignIn} />}
+                    {render === "get-started" && <GetStarted mainViewRef={mainViewRef} />}
+                    {render === "login" && <Login />}
                 </div>
             </div>
             <Faq />
-            <Footer setSignIn={setSignIn} mainViewRef={mainViewRef} />
+            <Footer mainViewRef={mainViewRef} />
         </div>
     )
 }
 
-export default LoginView
+export default Landing

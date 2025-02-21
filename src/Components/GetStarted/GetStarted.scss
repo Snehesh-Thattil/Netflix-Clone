@@ -12,6 +12,14 @@
     &.footer {
         width: 65%;
         height: 15rem;
+
+        .headings {
+
+            h1,
+            h2 {
+                display: none;
+            }
+        }
     }
 
     .headings {
@@ -62,6 +70,7 @@
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: large;
 
             &:focus {
                 outline: 2px solid wheat;
@@ -82,7 +91,7 @@
             justify-content: center;
             gap: 20px;
             border: none;
-            padding: 0.75rem 1rem;
+            padding: 1.5rem 1rem;
             border-radius: 0.25rem;
             cursor: pointer;
             background-color: rgb(245, 7, 19);
@@ -111,6 +120,8 @@
 
 // MEDIA-QUERIES RESPONSIVENESS
 @media screen and (max-width:767px) {
+
+
     .description {
         width: 85%;
 
@@ -148,6 +159,7 @@
             .get-started {
                 height: 50%;
                 width: 90%;
+                padding: 1rem;
 
                 p {
                     font-size: 20px;
@@ -187,6 +199,14 @@
 
         form {
             height: 4rem;
+
+            input {
+                font-size: larger;
+
+                &::placeholder {
+                    font-size: medium;
+                }
+            }
         }
     }
 }

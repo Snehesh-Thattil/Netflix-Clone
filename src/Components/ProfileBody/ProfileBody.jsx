@@ -4,15 +4,18 @@ import Plans from '../Plans/Plans'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../Firebase/firebase-config'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function ProfileBody() {
   const { user } = useSelector((state) => state.user)
+  const navigate = useNavigate()
 
   // Sign out user
   function handleSignOut() {
     signOut(auth)
       .then(() => {
         alert('Signed out successfully')
+        navigate('/')
       })
       .catch((err) => {
         console.log('Error signing out', err.message)

@@ -1,10 +1,10 @@
 import React from 'react'
-import LoginView from '../Components/LoginView/LoginView'
+import Landing from '../Components/Landing/Landing'
 
 function SignIn() {
     return (
         <div>
-            <LoginView />
+            <Landing />
         </div>
     )
 }
