@@ -9,6 +9,7 @@ function Plans() {
   const [plans, setPlans] = useState([])
   const { user } = useSelector((state) => state.user)
   const [subscription, setSubscription] = useState([])
+  const [isLoader, setIsLoader] = useState(false)
 
   // Fetching user subscription from firebase
   useEffect(() => {
@@ -63,12 +64,13 @@ function Plans() {
 
   // Handle subscription of a plan
   async function handleSubscribe(priceId) {
+    setIsLoader(true)
     const checkoutCollRef = collection(db, "customers", user.userId, "checkout_sessions")
 
     const checkoutDocRef = await addDoc(checkoutCollRef, {
       price: priceId,
       success_url: window.location.origin,
-      cancel_url: window.location.origin
+      cancel_url: `${window.location.origin}/profile`
     })
 
     onSnapshot(doc(db, "customers", user.userId, "checkout_sessions", checkoutDocRef.id), async (snap) => {
@@ -86,18 +88,21 @@ function Plans() {
   // Rendering
   return (
     <div className='plans-wrapper'>
+      {isLoader && <div className="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="#CB0000" stroke="#CB0000" strokeWidth="15" width="30" height="30" x="25" y="50"><animate attributeName="y" calcMode="spline" dur="2" values="50;120;50;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></rect><rect fill="#CB0000" stroke="#CB0000" strokeWidth="15" width="30" height="30" x="85" y="50"><animate attributeName="y" calcMode="spline" dur="2" values="50;120;50;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></rect><rect fill="#CB0000" stroke="#CB0000" strokeWidth="15" width="30" height="30" x="145" y="50"><animate attributeName="y" calcMode="spline" dur="2" values="50;120;50;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></rect></svg>
+      </div>}
+
       <h3>( Current Plan: {subscription[subscription.length - 1]?.role || 'Not Subscribed'} )</h3>
       {subscription.length !== 0 && <p>Renewal date: {new Date(subscription[subscription.length - 1]?.current_period_start * 1000 + 29 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>}
+
       {Object.entries(plans).map(([planId, planData]) => {
         const isCurrentPlan = planData.name?.toLowerCase().includes(subscription[subscription.length - 1]?.role.toLowerCase())
-
         return (
           <div className="plan" key={planId} >
             <div className="info">
               <h4>{planData.name}</h4>
               <h5>{planData.description}</h5>
             </div>
-
             <button className={isCurrentPlan ? 'active' : ''} onClick={() => !isCurrentPlan && handleSubscribe(planData.prices.priceId)}>{isCurrentPlan ? 'Current plan' : 'Subscribe'}</button>
           </div>
         )

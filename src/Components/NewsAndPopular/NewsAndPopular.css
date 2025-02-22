@@ -1,0 +1,109 @@
+.NewsAndPopular {
+  padding: 2rem;
+  margin-top: 4rem;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #141414;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.NewsAndPopular .loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NewsAndPopular .loader svg {
+  width: 10rem;
+}
+.NewsAndPopular .box {
+  background-color: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  position: relative;
+  min-height: 400px;
+}
+.NewsAndPopular .box:hover {
+  transform: scale(1.05);
+  z-index: 2;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+.NewsAndPopular .box:hover .contents button {
+  background-color: #ff0000;
+}
+.NewsAndPopular .box img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom: 3px solid #e50914;
+}
+.NewsAndPopular .box .source-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(229, 9, 20, 0.9);
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 0;
+  font-weight: bold;
+}
+.NewsAndPopular .box .contents {
+  padding: 1rem;
+}
+.NewsAndPopular .box .contents h3 {
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  min-height: 3.5em;
+  overflow: hidden;
+}
+.NewsAndPopular .box .contents .explanation {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.NewsAndPopular .box .contents button {
+  background-color: #e50914;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.NewsAndPopular .box .contents button a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.NewsAndPopular .box .contents button:hover {
+  background-color: #b40710;
+}
+
+@media (max-width: 1200px) {
+  .NewsAndPopular {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .NewsAndPopular {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .NewsAndPopular {
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=NewsAndPopular.css.map */

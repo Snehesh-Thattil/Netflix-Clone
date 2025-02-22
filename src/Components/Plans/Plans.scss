@@ -1,4 +1,25 @@
 .plans-wrapper {
+    .loader {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.7);
+        background-image: linear-gradient(to top,
+                rgba(0, 0, 0, 0.8)0,
+                rgba(0, 0, 0, 0)60%,
+                rgba(0, 0, 0, 0.8)100%);
+
+        svg {
+            width: 10rem;
+        }
+    }
+
     h3 {
         border-bottom: 1px solid #282c29;
         padding-bottom: 10px;
@@ -10,7 +31,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 20px;
-        opacity: 0.8;
 
         .info {
             width: 70%;
@@ -25,18 +45,24 @@
             padding: 10px 20px;
             color: white;
             font-size: 1rem;
-            background-color: #e50914;
+            background-color: #c50c15ec;
             border: none;
             cursor: pointer;
             font-weight: 600;
+            // opacity: 0.8;
 
             &.active {
                 background-color: gray;
-            }
-        }
 
-        &:hover {
-            opacity: 1;
+                &:hover {
+                    background-color: gray;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+                background-color: #e50914;
+            }
         }
     }
 }
