@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import Home from './Pages/Home';
-import Profile from './Pages/Profile'
-import Play from './Pages/Play';
-import News from './Pages/News';
 import SignIn from './Pages/SignIn';
 import SignUp from './Pages/SignUp';
+import Home from './Pages/Home';
+import Play from './Pages/Play';
+import TVshows from './Pages/TVshows';
+import Movies from './Pages/Movies';
+import News from './Pages/News';
+import Profile from './Pages/Profile'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './Redux/slices/userSlice'
-import Movies from './Components/NavItems/Movies'
-import TVshows from './Components/NavItems/TVshows'
 import MyList from './Components/NavItems/MyList'
 import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
 
@@ -57,9 +57,9 @@ function App() {
             <Route element={<Profile />} path='/profile' />
             <Route element={<Play />} path='/play-movie' />
             <Route element={<News />} path='/news-and-popular' />
+            <Route element={<TVshows />} path='/tvshows' />
 
             <Route element={<Movies />} path='/movies' />
-            <Route element={<TVshows />} path='/tvshows' />
             <Route element={<MyList />} path='/mylist' />
             <Route element={<BrowseByLanguage />} path='/browsebylanguage' />
           </Routes>

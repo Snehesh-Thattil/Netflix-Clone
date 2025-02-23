@@ -15,7 +15,7 @@
     transition: .2s ease-in-out;
 
     &.transparent {
-        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.1);
     }
 
     &.show {
@@ -77,6 +77,7 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                margin-right: .5rem;
 
                 i {
                     transform: translateX(-20px);
@@ -145,6 +146,8 @@
 
         .nav-items-wrapper {
             .nav-toggler {
+                margin-right: 1rem;
+
                 i {
                     scale: 1.75;
                     transform: translateX(-10px);

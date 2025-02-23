@@ -7,9 +7,10 @@
     margin: 10px 0;
     padding: 0 20px;
 
-    h1 {
+    .title {
         color: white;
-        margin-left: 1rem;
+        margin-left: 2rem;
+        text-transform: capitalize;
     }
 
     .cards {
@@ -19,6 +20,14 @@
         overflow-y: hidden;
         overflow-x: scroll;
         text-align: center;
+        scroll-behavior: smooth;
+
+        &.columns {
+            flex-wrap: wrap;
+            justify-content: center;
+            overflow-y: scroll;
+            margin-top: 5px;
+        }
 
         &::-webkit-scrollbar {
             display: none;
@@ -35,7 +44,7 @@
             object-fit: contain;
 
             &.isSmall {
-                scale: 0.95;
+                transform: scale(0.95);
             }
 
             h1 {
@@ -46,8 +55,7 @@
                 transition: .25s ease-in-out;
 
                 &:hover {
-
-                    scale: 1.025;
+                    transform: scale(1.025);
                 }
             }
         }
@@ -60,18 +68,23 @@
         text-align: center;
         padding: 0 15px;
 
-        h1 {
-            color: white;
-            margin-left: 0;
-            scale: 0.75;
-        }
-
         .cards {
             gap: 10px;
 
             .card {
                 width: 9rem;
             }
+        }
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .genres {
+        text-align: center;
+
+        .title {
+            margin-left: 0;
+            scale: 0.75;
         }
     }
 }

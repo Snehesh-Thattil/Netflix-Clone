@@ -1,16 +1,17 @@
 import React from 'react'
-import PlayMovie from '../Components/PlayMovie/PlayMovie'
 import Navbar from '../Components/Navbar/Navbar'
+import MoviesAndTvShows from '../Components/MoviesAndTvShows/MoviesAndTvShows'
 import Footer from '../Components/Footer/Footer'
+import { categoryURLs } from '../APIs/URLs'
 
-function Play() {
+function Movies() {
     return (
         <div>
             <Navbar />
-            <PlayMovie />
+            <MoviesAndTvShows ObjectURLs={categoryURLs} />
             <Footer loggedIn />
         </div>
     )
 }
 
-export default Play
+export default Movies

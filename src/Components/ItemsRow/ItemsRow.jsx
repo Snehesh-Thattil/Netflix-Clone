@@ -6,21 +6,21 @@ import { useDispatch } from 'react-redux'
 import { inject } from '../../Redux/slices/movieSlice'
 import { useNavigate } from 'react-router-dom'
 
-function ItemsRow(props) {
-    const [originals, setOriginals] = useState([])
+function ItemsRow({ genreUrl, title, isSmall, isColumns }) {
+    const [shows, setShows] = useState([])
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     // API calls for genre movies using axios
     useEffect(() => {
-        axios.get(props.genreUrl)
+        axios.get(genreUrl)
             .then((res) => {
-                setOriginals(res.data.results)
+                setShows(res.data.results)
             })
             .catch((err) => {
                 console.log('| ERROR |', err)
             })
-    }, [props.genreUrl])
+    }, [genreUrl])
 
     // Movie poster image URL config
     const posterImg = (movie, isSmall) => {
@@ -39,12 +39,12 @@ function ItemsRow(props) {
     // Rendering
     return (
         <div className='genres'>
-            <h1>{props.title}</h1>
-            <div className="cards">
-                {originals.map((movie) => {
+            <h1 className='title'>{title}</h1>
+            <div className={isColumns ? "cards columns" : "cards"}>
+                {shows.map((movie) => {
                     return (
-                        <div key={movie.id} className={props.isSmall ? "card isSmall" : "card"}>
-                            <img onClick={() => handleShowTrailer(movie)} className='card' src={posterImg(movie, props.isSmall)} alt="" />
+                        <div key={movie.id} className={isSmall ? "card isSmall" : "card"}>
+                            <img onClick={() => handleShowTrailer(movie)} className='card' src={posterImg(movie, isSmall)} alt="" />
                             <h1>{movie?.name || movie?.title || movie?.original_name}</h1>
                         </div>
                     )

@@ -7,12 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { redirectLogin } from '../../Redux/slices/onboardSlice';
 import { doc, setDoc } from 'firebase/firestore';
 import { updateProfile } from 'firebase/auth';
+import Loader from '../Loader/Loader';
 
 function CreateUser() {
     const { onboarder } = useSelector((state) => state.onboard)
+    const [load, setLoad] = useState(false)
     const [userData, setUserData] = useState({
         name: '',
-        email: onboarder.email ? onboarder.email : onboarder,
+        email: onboarder.email || onboarder || '',
         password: '',
         confirmPassword: ''
     })
@@ -27,6 +29,7 @@ function CreateUser() {
     // Submition of sign-up form
     function handleSubmit(e) {
         e.preventDefault()
+        setLoad(true)
 
         const regexInputs = {
             email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
@@ -34,12 +37,15 @@ function CreateUser() {
         }
 
         if (!regexInputs.email.test(userData.email)) {
+            setLoad(false)
             alert("Oops, invalid email")
         }
         else if (userData.confirmPassword !== userData.password) {
+            setLoad(false)
             alert("Oops, passwords don't match")
         }
         else if (!regexInputs.password.test(userData.password)) {
+            setLoad(false)
             alert("Hey there, password must contain one uppercase letter, one lowercase letter, and one special character")
         }
         else {
@@ -60,10 +66,12 @@ function CreateUser() {
                     setDoc(docRef, { name: userData.name }, { merge: true })
                 })
                 .then(() => {
+                    setLoad(false)
                     dispatch(redirectLogin({ email: userData.email, name: userData.name }))
                     navigate('/')
                 })
                 .catch((err) => {
+                    setLoad(false)
                     alert(err.message)
                 })
         }
@@ -72,6 +80,7 @@ function CreateUser() {
     // Rendering
     return (
         <div className="createUser">
+            {load && <Loader />}
             <div className="bg-gradient "></div>
 
             <div className="component-wrapper">
@@ -91,7 +100,7 @@ function CreateUser() {
                             type="email"
                             name="email"
                             placeholder="Email"
-                            value={userData.email}
+                            value={userData?.email}
                             onChange={handleChange}
                             required
                         />

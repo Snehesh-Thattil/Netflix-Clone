@@ -7,9 +7,10 @@
   margin: 10px 0;
   padding: 0 20px;
 }
-.genres h1 {
+.genres .title {
   color: white;
-  margin-left: 1rem;
+  margin-left: 2rem;
+  text-transform: capitalize;
 }
 .genres .cards {
   padding: 10px;
@@ -18,6 +19,13 @@
   overflow-y: hidden;
   overflow-x: scroll;
   text-align: center;
+  scroll-behavior: smooth;
+}
+.genres .cards.columns {
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  margin-top: 5px;
 }
 .genres .cards::-webkit-scrollbar {
   display: none;
@@ -33,7 +41,7 @@
      object-fit: contain;
 }
 .genres .cards .card.isSmall {
-  scale: 0.95;
+  transform: scale(0.95);
 }
 .genres .cards .card h1 {
   font-size: 17.5px;
@@ -42,7 +50,7 @@
   transition: 0.25s ease-in-out;
 }
 .genres .cards .card img:hover {
-  scale: 1.025;
+  transform: scale(1.025);
 }
 
 @media screen and (max-width: 768px) {
@@ -50,15 +58,19 @@
     text-align: center;
     padding: 0 15px;
   }
-  .genres h1 {
-    color: white;
-    margin-left: 0;
-    scale: 0.75;
-  }
   .genres .cards {
     gap: 10px;
   }
   .genres .cards .card {
     width: 9rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .genres {
+    text-align: center;
+  }
+  .genres .title {
+    margin-left: 0;
+    scale: 0.75;
   }
 }/*# sourceMappingURL=ItemsRow.css.map */

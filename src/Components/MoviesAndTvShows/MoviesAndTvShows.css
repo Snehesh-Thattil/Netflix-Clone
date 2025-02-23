@@ -1,0 +1,34 @@
+.MoviesView {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 4rem;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.MoviesView .toggle-contents {
+  margin-top: 15px;
+}
+.MoviesView .toggle-contents button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 1.5px;
+  font-size: 0.8rem;
+  background-color: rgba(197, 12, 21, 0.9254901961);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.MoviesView .toggle-contents button.active {
+  background-color: gray;
+}
+.MoviesView .toggle-contents button.active:hover {
+  background-color: gray;
+}
+.MoviesView .toggle-contents button:hover {
+  background-color: rgb(243, 12, 12);
+}/*# sourceMappingURL=MoviesAndTvShows.css.map */

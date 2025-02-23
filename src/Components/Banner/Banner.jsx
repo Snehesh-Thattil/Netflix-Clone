@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../APIs/Constants'
 import { imageUrl, categoryURLs } from '../../APIs/URLs'
+import Loader from '../Loader/Loader'
 import './Banner.css'
 
 
@@ -19,7 +20,7 @@ function Banner() {
             })
     }, [])
 
-    // Shorten the description when its long
+    // Shorten the description when its too long
     function truncate(string, n) {
         if (string) {
             return string.length < n ? string : string.substr(0, n - 1) + '...'
@@ -29,8 +30,9 @@ function Banner() {
     // Rendering
     return (
         <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie?.backdrop_path})` }}>
+            {!bannerMovie && <Loader />}
             <div className="content">
-                <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name || "Movie Title"}</h1>
+                <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name}</h1>
                 <div className="buttons">
                     <button>Play</button>
                     <button>List</button>
