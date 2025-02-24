@@ -8,7 +8,6 @@
   padding: 0 20px;
 }
 .genres .title {
-  color: white;
   margin-left: 2rem;
   text-transform: capitalize;
 }
@@ -20,57 +19,80 @@
   overflow-x: scroll;
   text-align: center;
   scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 .genres .cards.columns {
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow-y: scroll;
-  margin-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+.genres .cards.columns .card {
+  width: 100%;
 }
 .genres .cards::-webkit-scrollbar {
   display: none;
 }
 .genres .cards .card {
-  width: 15rem;
+  min-width: 15rem;
   border-radius: 7.5px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5px;
   cursor: pointer;
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 .genres .cards .card.isSmall {
   transform: scale(0.95);
 }
 .genres .cards .card h1 {
-  font-size: 17.5px;
+  font-size: 1.2rem;
 }
 .genres .cards .card img {
   transition: 0.25s ease-in-out;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 7.5px;
 }
 .genres .cards .card img:hover {
   transform: scale(1.025);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .genres {
     text-align: center;
     padding: 0 15px;
   }
-  .genres .cards {
+  .genres .title {
+    margin-left: 0;
+  }
+  .genres .cards.columns {
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   .genres .cards .card {
-    width: 9rem;
+    min-width: 9rem;
   }
 }
-@media screen and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .genres {
     text-align: center;
   }
+  .genres .cards.columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .genres .title {
     margin-left: 0;
-    scale: 0.75;
+    transform: scale(0.75);
+  }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .genres .cards.columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1441px) {
+  .genres .cards.columns {
+    grid-template-columns: repeat(5, 1fr);
   }
 }/*# sourceMappingURL=ItemsRow.css.map */

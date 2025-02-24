@@ -1,27 +1,35 @@
+.MyListView,
 .MoviesView {
     width: 100%;
-    min-height: 100vh;
+    min-height: fit-content;
     margin-top: 4rem;
     color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 5rem;
+    border-bottom: 2px solid black;
 
     .toggle-contents {
-        margin-top: 15px;
+        margin: 15px 0;
+        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: flex-start;
 
         button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 1.5px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 2px;
             font-size: .8rem;
-            background-color: rgba(197, 12, 21, 0.9254901961);
+            background-color: rgba(197, 12, 21, 0.925);
             color: white;
             border: none;
             cursor: pointer;
             font-weight: 600;
             text-transform: capitalize;
+            transition: background-color 0.2s ease;
 
             &.active {
                 background-color: gray;
@@ -34,6 +42,48 @@
             &:hover {
                 background-color: rgb(243, 12, 12);
             }
+        }
+    }
+}
+
+
+// MEDIA-QUERIES RESPONSIVENESS
+@media screen and (max-width:767px) {
+
+    .MyListView,
+    .MoviesView {
+
+        .toggle-contents {
+            padding: 0 1rem; // Reduced padding
+            gap: 0.5rem; // Tighter gap on mobile
+
+            button {
+                padding: 0.5rem 1rem; // Smaller buttons on mobile
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+
+    .MyListView,
+    .MoviesView {
+        margin-top: 6rem;
+
+        .toggle-contents {
+            padding: 0 3rem;
+        }
+    }
+}
+
+@media (min-width: 1025px) {
+
+    .MyListView,
+    .MoviesView {
+        .toggle-contents {
+            max-width: 1200px; // Prevent excessive stretching on large screens
+            margin: 15px auto;
         }
     }
 }

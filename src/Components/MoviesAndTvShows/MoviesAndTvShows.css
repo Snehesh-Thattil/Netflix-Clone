@@ -1,34 +1,78 @@
+.MyListView,
 .MoviesView {
   width: 100%;
-  min-height: 100vh;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
   margin-top: 4rem;
   color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 5rem;
+  border-bottom: 2px solid black;
 }
+.MyListView .toggle-contents,
 .MoviesView .toggle-contents {
-  margin-top: 15px;
+  margin: 15px 0;
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
 }
+.MyListView .toggle-contents button,
 .MoviesView .toggle-contents button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 1.5px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 2px;
   font-size: 0.8rem;
-  background-color: rgba(197, 12, 21, 0.9254901961);
+  background-color: rgba(197, 12, 21, 0.925);
   color: white;
   border: none;
   cursor: pointer;
   font-weight: 600;
   text-transform: capitalize;
+  transition: background-color 0.2s ease;
 }
+.MyListView .toggle-contents button.active,
 .MoviesView .toggle-contents button.active {
   background-color: gray;
 }
+.MyListView .toggle-contents button.active:hover,
 .MoviesView .toggle-contents button.active:hover {
   background-color: gray;
 }
+.MyListView .toggle-contents button:hover,
 .MoviesView .toggle-contents button:hover {
   background-color: rgb(243, 12, 12);
+}
+
+@media screen and (max-width: 767px) {
+  .MyListView .toggle-contents,
+  .MoviesView .toggle-contents {
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+  .MyListView .toggle-contents button,
+  .MoviesView .toggle-contents button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .MyListView,
+  .MoviesView {
+    margin-top: 6rem;
+  }
+  .MyListView .toggle-contents,
+  .MoviesView .toggle-contents {
+    padding: 0 3rem;
+  }
+}
+@media (min-width: 1025px) {
+  .MyListView .toggle-contents,
+  .MoviesView .toggle-contents {
+    max-width: 1200px;
+    margin: 15px auto;
+  }
 }/*# sourceMappingURL=MoviesAndTvShows.css.map */

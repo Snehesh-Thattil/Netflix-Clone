@@ -1,9 +1,12 @@
 .PlayMovie {
   width: 100%;
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
   margin-top: 4rem;
+  background-color: rgb(26, 25, 25);
 }
 .PlayMovie .trailer {
   width: 100%;
@@ -14,9 +17,108 @@
      object-fit: contain;
   background-color: rgb(160, 47, 53);
 }
+.PlayMovie .title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 7.5rem;
+  height: 7rem;
+}
+.PlayMovie .title h1 {
+  color: white;
+  font-size: 2.5rem;
+}
+.PlayMovie .title .list-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 12.5rem;
+}
+.PlayMovie .title .list-btns .list-btn {
+  width: 100%;
+  padding: 15px 10px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #e6e6e6;
+  color: black;
+}
+.PlayMovie .title .list-btns .list-btn:hover {
+  background-color: rgba(141, 138, 138, 0.74);
+  background-color: black;
+  color: white;
+  outline: 1px solid white;
+}
+.PlayMovie .movie-details {
+  outline: solid 2px rgb(44, 43, 43);
+  display: flex;
+  gap: 5rem;
+  color: white;
+  padding: 1rem 7.5rem;
+  width: 100%;
+}
+.PlayMovie .movie-details table {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.PlayMovie .movie-details table tbody tr {
+  text-transform: capitalize;
+}
+.PlayMovie .movie-details table tbody tr td {
+  padding: 5px 0;
+  padding-right: 10px;
+}
+.PlayMovie .movie-details table tbody tr td span {
+  margin-right: 15px;
+}
+.PlayMovie .movie-details .overview {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 30rem;
+  text-align: justify;
+}
 
 @media (min-width: 767px) and (max-width: 1024px) {
   .PlayMovie {
     margin-top: 6rem;
+  }
+  .PlayMovie .title {
+    padding: 0 5rem;
+  }
+  .PlayMovie .movie-details {
+    padding: 1rem 5rem;
+    gap: 2.5rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .PlayMovie .title {
+    padding: 0 2.5rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .PlayMovie .title h1 {
+    color: white;
+    font-size: 1.5rem;
+  }
+  .PlayMovie .title .list-btns {
+    flex-direction: row;
+    width: 100%;
+  }
+  .PlayMovie .title .list-btns .list-btn {
+    width: 100%;
+  }
+  .PlayMovie .movie-details {
+    padding: 1rem 2.5rem;
+    flex-direction: column-reverse;
+    gap: 2.5rem;
+  }
+  .PlayMovie .movie-details table {
+    font-size: 15px;
+  }
+  .PlayMovie .movie-details .overview {
+    max-width: 100%;
   }
 }/*# sourceMappingURL=PlayMovie.css.map */

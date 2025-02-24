@@ -3,10 +3,15 @@ import axios from '../../APIs/Constants'
 import { imageUrl, categoryURLs } from '../../APIs/URLs'
 import Loader from '../Loader/Loader'
 import './Banner.css'
+import { useDispatch } from 'react-redux'
+import { inject } from '../../Redux/slices/movieSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 function Banner() {
     let [bannerMovie, setBannerMovie] = useState()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     // API call for Trending shows using axios
     useEffect(() => {
@@ -27,6 +32,12 @@ function Banner() {
         }
     }
 
+    // Clicks play button on the banner
+    function handleClickPlay(movie) {
+        dispatch(inject(movie))
+        navigate('/play-movie')
+    }
+
     // Rendering
     return (
         <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie?.backdrop_path})` }}>
@@ -34,7 +45,7 @@ function Banner() {
             <div className="content">
                 <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name}</h1>
                 <div className="buttons">
-                    <button>Play</button>
+                    <button onClick={() => handleClickPlay(bannerMovie)}>Play</button>
                     <button>List</button>
                 </div>
                 <p>{truncate(bannerMovie?.overview, 150)}</p>

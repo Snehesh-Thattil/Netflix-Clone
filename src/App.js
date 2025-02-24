@@ -8,12 +8,12 @@ import TVshows from './Pages/TVshows';
 import Movies from './Pages/Movies';
 import News from './Pages/News';
 import Profile from './Pages/Profile'
+import MyList from './Pages/MyList';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './Redux/slices/userSlice'
-import MyList from './Components/NavItems/MyList'
 import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
 
 function App() {
@@ -58,9 +58,9 @@ function App() {
             <Route element={<Play />} path='/play-movie' />
             <Route element={<News />} path='/news-and-popular' />
             <Route element={<TVshows />} path='/tvshows' />
-
             <Route element={<Movies />} path='/movies' />
-            <Route element={<MyList />} path='/mylist' />
+            <Route element={<MyList />} path='/my-list' />
+
             <Route element={<BrowseByLanguage />} path='/browsebylanguage' />
           </Routes>
         }

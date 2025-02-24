@@ -66,7 +66,7 @@ function Navbar() {
                     <li><Link to="/tvshows">TV shows</Link></li>
                     <li><Link to="/movies">Movies</Link></li>
                     <li><Link to="/news-and-popular">News & Popular</Link></li>
-                    <li><Link to="/mylist">My List</Link></li>
+                    <li><Link to="/my-list">My List</Link></li>
                     <li><Link to="/browsebylanguage">Browse by Language</Link></li>
                 </ul>
             </div>

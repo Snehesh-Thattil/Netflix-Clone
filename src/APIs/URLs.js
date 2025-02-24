@@ -9,8 +9,10 @@ export const categoryURLs = {
     romance: `/discover/movie?api_key=${tmdbApiKey}&with_genres=10749`,
     comedy: `/discover/movie?api_key=${tmdbApiKey}&with_genres=35`,
     horror: `/discover/movie?api_key=${tmdbApiKey}&with_genres=27`,
-    documentaries: `/discover/movie?api_key=${tmdbApiKey}&with_genres=99`
+    documentaries: `/discover/movie?api_key=${tmdbApiKey}&with_genres=99`,
+    triller: `/discover/movie?api_key=${tmdbApiKey}&with_genres=53`,
 }
+
 export const tvURLs = {
     popular: `/tv/popular?api_key=${tmdbApiKey}&language=en-US`,
     topRated: `/tv/top_rated?api_key=${tmdbApiKey}&language=en-US`,
