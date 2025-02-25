@@ -10,7 +10,7 @@ import News from './Pages/News';
 import Profile from './Pages/Profile'
 import MyList from './Pages/MyList';
 import Upcoming from './Pages/Upcoming';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,6 +19,7 @@ import { login, logout } from './Redux/slices/userSlice'
 function App() {
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.user)
+  const location = useLocation()
 
   // Checking user sign-in status
   useEffect(() => {
@@ -42,28 +43,31 @@ function App() {
     return () => unsubscribe()
   }, [dispatch])
 
+  // Show the top evrytime switching page
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   // Render
   return (
     <div className="App">
-      <Router>
-        {!user ?
-          <Routes>
-            <Route element={<SignIn />} path='/' />
-            <Route element={<SignUp />} path='/sign-up' />
-          </Routes>
-          :
-          <Routes>
-            <Route exact element={<Home />} path='/' />
-            <Route element={<Profile />} path='/profile' />
-            <Route element={<Play />} path='/play-movie' />
-            <Route element={<News />} path='/news-and-popular' />
-            <Route element={<TVshows />} path='/tvshows' />
-            <Route element={<Movies />} path='/movies' />
-            <Route element={<MyList />} path='/my-list' />
-            <Route element={<Upcoming />} path='/upcoming' />
-          </Routes>
-        }
-      </Router>
+      {!user ?
+        <Routes>
+          <Route element={<SignIn />} path='/' />
+          <Route element={<SignUp />} path='/sign-up' />
+        </Routes>
+        :
+        <Routes>
+          <Route exact element={<Home />} path='/' />
+          <Route element={<Profile />} path='/profile' />
+          <Route element={<Play />} path='/play-movie' />
+          <Route element={<News />} path='/news-and-popular' />
+          <Route element={<TVshows />} path='/tvshows' />
+          <Route element={<Movies />} path='/movies' />
+          <Route element={<MyList />} path='/my-list' />
+          <Route element={<Upcoming />} path='/upcoming' />
+        </Routes>
+      }
     </div>
   )
 }
