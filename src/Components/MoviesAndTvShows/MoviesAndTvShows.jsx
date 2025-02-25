@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import './MoviesAndTvShows.css'
 import ItemsRow from '../ItemsRow/ItemsRow'
 
@@ -7,10 +7,10 @@ function MoviesAndTvShows({ ObjectURLs }) {
   const [fetch, setFetch] = useState(Object.values(ObjectURLs)[0])
 
   // Clicks one of the buttons of categories
-  function handleSelection(category, value) {
+  const handleSelection = useCallback((category, value) => {
     setShow(category)
     setFetch(value)
-  }
+  }, [])
 
   // Rendering
   return (

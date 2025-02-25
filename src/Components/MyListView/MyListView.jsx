@@ -46,7 +46,6 @@ function MyListView() {
         console.log('Error fetching genre names from TMDb :', err.message)
       }
     }
-
     fetchGenres()
   }, [])
 
@@ -65,7 +64,7 @@ function MyListView() {
 
   // Filter movies by selected genre
   const filteredList = useMemo(() => {
-    if (currentGenre === 'All') return list;
+    if (currentGenre === 'All') return list
     const genre = genres.find((g) => g.name === currentGenre)
     return list.filter(({ genre_ids }) => genre_ids.includes(genre?.id))
   }, [currentGenre, list, genres])

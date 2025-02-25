@@ -1,5 +1,6 @@
 .MyListView,
-.MoviesView {
+.MoviesView,
+.UpcomingView {
   width: 100%;
   min-height: -moz-fit-content;
   min-height: fit-content;
@@ -12,8 +13,14 @@
   padding-bottom: 5rem;
   border-bottom: 2px solid black;
 }
+.MyListView .upcoming-title,
+.MoviesView .upcoming-title,
+.UpcomingView .upcoming-title {
+  margin: 1.5rem 0;
+}
 .MyListView .toggle-contents,
-.MoviesView .toggle-contents {
+.MoviesView .toggle-contents,
+.UpcomingView .toggle-contents {
   margin: 15px 0;
   padding: 0 15px;
   display: flex;
@@ -22,7 +29,8 @@
   justify-content: flex-start;
 }
 .MyListView .toggle-contents button,
-.MoviesView .toggle-contents button {
+.MoviesView .toggle-contents button,
+.UpcomingView .toggle-contents button {
   padding: 0.75rem 1.25rem;
   border-radius: 2px;
   font-size: 0.8rem;
@@ -35,43 +43,51 @@
   transition: background-color 0.2s ease;
 }
 .MyListView .toggle-contents button.active,
-.MoviesView .toggle-contents button.active {
+.MoviesView .toggle-contents button.active,
+.UpcomingView .toggle-contents button.active {
   background-color: gray;
 }
 .MyListView .toggle-contents button.active:hover,
-.MoviesView .toggle-contents button.active:hover {
+.MoviesView .toggle-contents button.active:hover,
+.UpcomingView .toggle-contents button.active:hover {
   background-color: gray;
 }
 .MyListView .toggle-contents button:hover,
-.MoviesView .toggle-contents button:hover {
+.MoviesView .toggle-contents button:hover,
+.UpcomingView .toggle-contents button:hover {
   background-color: rgb(243, 12, 12);
 }
 
 @media screen and (max-width: 767px) {
   .MyListView .toggle-contents,
-  .MoviesView .toggle-contents {
+  .MoviesView .toggle-contents,
+  .UpcomingView .toggle-contents {
     padding: 0 1rem;
     gap: 0.5rem;
   }
   .MyListView .toggle-contents button,
-  .MoviesView .toggle-contents button {
+  .MoviesView .toggle-contents button,
+  .UpcomingView .toggle-contents button {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .MyListView,
-  .MoviesView {
+  .MoviesView,
+  .UpcomingView {
     margin-top: 6rem;
   }
   .MyListView .toggle-contents,
-  .MoviesView .toggle-contents {
+  .MoviesView .toggle-contents,
+  .UpcomingView .toggle-contents {
     padding: 0 3rem;
   }
 }
 @media (min-width: 1025px) {
   .MyListView .toggle-contents,
-  .MoviesView .toggle-contents {
+  .MoviesView .toggle-contents,
+  .UpcomingView .toggle-contents {
     max-width: 1200px;
     margin: 15px auto;
   }

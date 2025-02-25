@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import axios from '../../APIs/Constants'
 import { imageUrl, categoryURLs } from '../../APIs/URLs'
 import Loader from '../Loader/Loader'
@@ -9,39 +9,42 @@ import { useNavigate } from 'react-router-dom'
 
 
 function Banner() {
-    let [bannerMovie, setBannerMovie] = useState()
+    let [bannerMovie, setBannerMovie] = useState({})
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     // API call for Trending shows using axios
     useEffect(() => {
-        axios.get(categoryURLs.trending)
-            .then((res) => {
-                let randomNum = Math.floor(Math.random() * res.data.results.length - 1)
-                setBannerMovie(res.data.results[randomNum])
-            })
-            .catch((err) => {
-                console.log('| ERROR |', err)
-            })
+        const fetchBanner = async () => {
+            try {
+                const { data } = await axios.get(categoryURLs.trending)
+                if (data.results.length > 0) {
+                    const randomNum = Math.floor(Math.random() * data.results.length);
+                    setBannerMovie(data.results[randomNum]);
+                }
+            }
+            catch (err) {
+                console.log("Error fetching banner movie:", err.message)
+            }
+        }
+        fetchBanner()
     }, [])
 
-    // Shorten the description when its too long
-    function truncate(string, n) {
-        if (string) {
-            return string.length < n ? string : string.substr(0, n - 1) + '...'
-        }
-    }
-
     // Clicks play button on the banner
-    function handleClickPlay(movie) {
-        dispatch(inject(movie))
+    const handleClickPlay = useCallback(() => {
+        dispatch(inject(bannerMovie))
         navigate('/play-movie')
-    }
+    }, [bannerMovie, dispatch, navigate])
+
+    // Shorten the description when its too long
+    const truncate = useCallback((text, n) => {
+        return text?.length > n ? `${text.slice(0, n)}...` : text
+    }, [])
 
     // Rendering
+    if (!bannerMovie) return <Loader />;
     return (
-        <div className='banner' style={{ backgroundImage: `url(${imageUrl}/${bannerMovie?.backdrop_path})` }}>
-            {!bannerMovie && <Loader />}
+        <div className='banner' style={{ backgroundImage: bannerMovie.backdrop_path ? `url(${imageUrl}/${bannerMovie?.backdrop_path})` : 'none' }}>
             <div className="content">
                 <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name}</h1>
                 <div className="buttons">

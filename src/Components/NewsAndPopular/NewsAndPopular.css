@@ -59,6 +59,10 @@
 }
 .NewsAndPopular .box .contents {
   padding: 1rem;
+  height: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .NewsAndPopular .box .contents h3 {
   color: #ffffff;
@@ -74,21 +78,21 @@
   margin-bottom: 1.5rem;
   overflow: hidden;
 }
-.NewsAndPopular .box .contents button {
-  background-color: #e50914;
+.NewsAndPopular .box .contents a {
+  width: -moz-max-content;
+  width: max-content;
   border: none;
   border-radius: 4px;
   padding: 0.8rem 1.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.NewsAndPopular .box .contents button a {
+  background-color: #e50914;
   color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.NewsAndPopular .box .contents button:hover {
+.NewsAndPopular .box .contents a:hover {
   background-color: #b40710;
 }
 

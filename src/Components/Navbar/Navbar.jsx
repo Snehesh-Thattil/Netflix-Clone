@@ -30,7 +30,6 @@ function Navbar() {
 
             prevScroll = currentScroll
         }
-
         window.addEventListener('scroll', handleNavbarView)
         return () => {
             window.removeEventListener('scroll', handleNavbarView)
@@ -44,9 +43,7 @@ function Navbar() {
                 navToggleRef.current?.classList.remove('active')
             }
         }
-
         document.addEventListener('mousedown', handleClickOutside)
-
         return () => {
             document.removeEventListener('mousedown', handleClickOutside)
         }
@@ -67,7 +64,7 @@ function Navbar() {
                     <li><Link to="/movies">Movies</Link></li>
                     <li><Link to="/news-and-popular">News & Popular</Link></li>
                     <li><Link to="/my-list">My List</Link></li>
-                    <li><Link to="/browsebylanguage">Browse by Language</Link></li>
+                    <li><Link to="/upcoming">Upcoming</Link></li>
                 </ul>
             </div>
             <img className='avatar' onClick={() => navigate('/profile')} src='https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png' alt="Netflix_User_Avatar" />

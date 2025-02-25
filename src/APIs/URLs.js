@@ -18,3 +18,5 @@ export const tvURLs = {
     topRated: `/tv/top_rated?api_key=${tmdbApiKey}&language=en-US`,
     onTheAir: `/tv/on_the_air?api_key=${tmdbApiKey}&language=en-US`,
 }
+
+export const upcoming = `/movie/upcoming?api_key=${tmdbApiKey}&language=en-US`

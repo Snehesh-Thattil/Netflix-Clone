@@ -1,5 +1,6 @@
 .MyListView,
-.MoviesView {
+.MoviesView,
+.UpcomingView {
     width: 100%;
     min-height: fit-content;
     margin-top: 4rem;
@@ -10,6 +11,10 @@
     justify-content: center;
     padding-bottom: 5rem;
     border-bottom: 2px solid black;
+
+    .upcoming-title {
+        margin: 1.5rem 0;
+    }
 
     .toggle-contents {
         margin: 15px 0;
@@ -51,7 +56,8 @@
 @media screen and (max-width:767px) {
 
     .MyListView,
-    .MoviesView {
+    .MoviesView,
+    .UpcomingView {
 
         .toggle-contents {
             padding: 0 1rem; // Reduced padding
@@ -68,7 +74,8 @@
 @media (min-width:768px) and (max-width:1024px) {
 
     .MyListView,
-    .MoviesView {
+    .MoviesView,
+    .UpcomingView {
         margin-top: 6rem;
 
         .toggle-contents {
@@ -80,7 +87,8 @@
 @media (min-width: 1025px) {
 
     .MyListView,
-    .MoviesView {
+    .MoviesView,
+    .UpcomingView {
         .toggle-contents {
             max-width: 1200px; // Prevent excessive stretching on large screens
             margin: 15px auto;

@@ -65,6 +65,7 @@
   }
   .genres .title {
     margin-left: 0;
+    font-size: 25px;
   }
   .genres .cards.columns {
     grid-template-columns: repeat(2, 1fr);

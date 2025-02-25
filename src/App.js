@@ -9,12 +9,12 @@ import Movies from './Pages/Movies';
 import News from './Pages/News';
 import Profile from './Pages/Profile'
 import MyList from './Pages/MyList';
+import Upcoming from './Pages/Upcoming';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './Redux/slices/userSlice'
-import BrowseByLanguage from './Components/NavItems/BrowseByLanguage'
 
 function App() {
   const dispatch = useDispatch()
@@ -60,8 +60,7 @@ function App() {
             <Route element={<TVshows />} path='/tvshows' />
             <Route element={<Movies />} path='/movies' />
             <Route element={<MyList />} path='/my-list' />
-
-            <Route element={<BrowseByLanguage />} path='/browsebylanguage' />
+            <Route element={<Upcoming />} path='/upcoming' />
           </Routes>
         }
       </Router>
