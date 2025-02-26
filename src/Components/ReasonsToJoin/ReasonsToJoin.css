@@ -1,0 +1,62 @@
+.ReasonsToJoin {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    color: rgb(212, 209, 209);
+    margin: 2rem 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.card {
+    height: 17.5rem;
+    background: linear-gradient(135deg, #3b0d78 0%, #1b0a2a 100%);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, #5a189a 0%, #321450 100%);
+    box-shadow: inset 0 0 12px rgba(255, 100, 200, 0.3), 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+.card p {
+    width: 100%;
+    text-align: justify;
+    margin: 20px 0;
+}
+
+.card img {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+@media screen and (max-width:767px) {
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}

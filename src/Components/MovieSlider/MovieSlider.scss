@@ -1,0 +1,123 @@
+.MovieSlider {
+    position: relative;
+    max-width: 85%;
+    margin: 3rem auto;
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .swiper-button-prev-custom,
+    .swiper-button-next-custom {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+            background: rgba(63, 63, 63, 0.8);
+        }
+    }
+
+    .swiper-button-prev-custom {
+        left: -60px;
+    }
+
+    .swiper-button-next-custom {
+        right: -60px;
+    }
+
+    .movie-card {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s;
+        border-radius: 8px;
+
+        &:hover {
+            transform: scale(.95);
+        }
+
+        .poster {
+            max-height: 25rem;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .rank {
+            position: absolute;
+            top: -4%;
+            left: 0;
+            font-size: 7.5rem;
+            font-weight: bold;
+            color: black;
+            text-shadow: 4px 4px 10px black;
+            -webkit-text-stroke: 3px white;
+        }
+    }
+}
+
+
+// MEDIA-QUERIES RESPONSIVENESS
+@media (max-width: 1024px) {
+    .MovieSlider {
+        .title {
+            text-align: center;
+        }
+
+        .swiper-button-prev-custom {
+            left: -50px;
+        }
+
+        .swiper-button-next-custom {
+            right: -50px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .MovieSlider {
+        max-width: 100%;
+        padding: 0 25px;
+
+        .swiper-button-prev-custom,
+        .swiper-button-next-custom {
+            width: 40px;
+            height: 60px;
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .MovieSlider {
+        max-width: 100%;
+        padding: 0 20px;
+
+        .swiper-button-prev-custom,
+        .swiper-button-next-custom {
+            display: none;
+        }
+
+        .movie-card {
+            .poster {
+                width: 100%;
+                object-fit: contain;
+                max-height: unset;
+            }
+        }
+
+    }
+}

@@ -80,6 +80,9 @@
   text-decoration: none;
   margin: 0 5px;
 }
+.createUser .component-wrapper .signup-steps h4 .link:hover {
+  text-decoration: underline;
+}
 
 @media screen and (max-width: 767px) {
   .createUser .component-wrapper {

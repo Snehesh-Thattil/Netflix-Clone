@@ -50,10 +50,10 @@ function GetStarted({ mainViewRef, isFooter }) {
             </div>
             <form action="">
                 <input type="email" placeholder='Email address' ref={emailRef} />
-                <div className="get-started" onClick={handleGetStartedClick}>
-                    <p>Get Start</p>
+                <button className="get-started" onClick={handleGetStartedClick}>
+                    <p>Get Started</p>
                     <i className="fa-solid fa-chevron-right"></i>
-                </div>
+                </button>
             </form>
         </div>
     )

@@ -91,6 +91,7 @@
 }
 .description form .get-started p {
   font-weight: 900;
+  font-size: 15px;
 }
 .description form .get-started i {
   transition: transform 0.3s ease-in-out;
@@ -137,7 +138,7 @@
     padding: 1rem;
   }
   .description form .get-started p {
-    font-size: 20px;
+    font-size: 12.5px;
     margin-right: unset;
   }
 }

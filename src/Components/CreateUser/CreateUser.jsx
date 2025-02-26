@@ -14,7 +14,7 @@ function CreateUser() {
     const [load, setLoad] = useState(false)
     const [userData, setUserData] = useState({
         name: '',
-        email: onboarder.email || onboarder || '',
+        email: onboarder?.email || onboarder || '',
         password: '',
         confirmPassword: ''
     })
@@ -78,9 +78,9 @@ function CreateUser() {
     }
 
     // Rendering
+    if (load) return <Loader />
     return (
         <div className="createUser">
-            {load && <Loader />}
             <div className="bg-gradient "></div>
 
             <div className="component-wrapper">

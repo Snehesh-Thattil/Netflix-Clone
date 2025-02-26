@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import SignIn from './Pages/SignIn';
+import Landing from './Pages/Landing';
 import SignUp from './Pages/SignUp';
 import Home from './Pages/Home';
-import Play from './Pages/Play';
 import TVshows from './Pages/TVshows';
 import Movies from './Pages/Movies';
 import News from './Pages/News';
-import Profile from './Pages/Profile'
 import MyList from './Pages/MyList';
+import Play from './Pages/Play';
 import Upcoming from './Pages/Upcoming';
+import Profile from './Pages/Profile'
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
@@ -43,7 +43,7 @@ function App() {
     return () => unsubscribe()
   }, [dispatch])
 
-  // Show the top evrytime switching page
+  // Show screen top everytime switching page
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
@@ -53,7 +53,7 @@ function App() {
     <div className="App">
       {!user ?
         <Routes>
-          <Route element={<SignIn />} path='/' />
+          <Route element={<Landing />} path='/' />
           <Route element={<SignUp />} path='/sign-up' />
         </Routes>
         :

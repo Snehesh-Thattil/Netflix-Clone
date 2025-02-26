@@ -1,0 +1,103 @@
+.MovieSlider {
+  position: relative;
+  max-width: 85%;
+  margin: 3rem auto;
+}
+.MovieSlider .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 2rem;
+}
+.MovieSlider .swiper-button-prev-custom,
+.MovieSlider .swiper-button-next-custom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.MovieSlider .swiper-button-prev-custom:hover,
+.MovieSlider .swiper-button-next-custom:hover {
+  background: rgba(63, 63, 63, 0.8);
+}
+.MovieSlider .swiper-button-prev-custom {
+  left: -60px;
+}
+.MovieSlider .swiper-button-next-custom {
+  right: -60px;
+}
+.MovieSlider .movie-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border-radius: 8px;
+}
+.MovieSlider .movie-card:hover {
+  transform: scale(0.95);
+}
+.MovieSlider .movie-card .poster {
+  max-height: 25rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 8px;
+}
+.MovieSlider .movie-card .rank {
+  position: absolute;
+  top: -4%;
+  left: 0;
+  font-size: 7.5rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 4px 4px 10px black;
+  -webkit-text-stroke: 3px white;
+}
+
+@media (max-width: 1024px) {
+  .MovieSlider .title {
+    text-align: center;
+  }
+  .MovieSlider .swiper-button-prev-custom {
+    left: -50px;
+  }
+  .MovieSlider .swiper-button-next-custom {
+    right: -50px;
+  }
+}
+@media (max-width: 767px) {
+  .MovieSlider {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+  .MovieSlider .swiper-button-prev-custom,
+  .MovieSlider .swiper-button-next-custom {
+    width: 40px;
+    height: 60px;
+    font-size: 20px;
+  }
+}
+@media (max-width: 640px) {
+  .MovieSlider {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  .MovieSlider .swiper-button-prev-custom,
+  .MovieSlider .swiper-button-next-custom {
+    display: none;
+  }
+  .MovieSlider .movie-card .poster {
+    width: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-height: unset;
+  }
+}/*# sourceMappingURL=MovieSlider.css.map */
