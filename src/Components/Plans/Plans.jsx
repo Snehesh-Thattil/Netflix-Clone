@@ -134,6 +134,7 @@ function Plans() {
               <h4>{planData.name}</h4>
               <h5>{planData.description}</h5>
             </div>
+            <p>Rs.{Math.floor(planData.prices.unit_amount / 100)}</p>
             <button className={isCurrentPlan ? 'active' : ''} onClick={() => !isCurrentPlan && handleSubscribe(planData.prices.priceId)}>{isCurrentPlan ? 'Current plan' : 'Subscribe'}</button>
           </div>
         )

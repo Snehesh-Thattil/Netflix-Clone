@@ -6,9 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import ShowPopUp from "../ShowPopUp/ShowPopUp";
 
 const MovieSlider = () => {
     const [topMovies, setTopMovies] = useState([])
+    const [viewMovie, setViewMovie] = useState(null)
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -32,6 +34,7 @@ const MovieSlider = () => {
     // Rendering
     return (
         <div className="MovieSlider">
+            {viewMovie && <ShowPopUp viewMovie={viewMovie} setViewMovie={setViewMovie} />}
             <h2 className="title">Trending Now</h2>
 
             {/* Custom Navigation Buttons */}
@@ -59,7 +62,7 @@ const MovieSlider = () => {
 
                 {topMovies.map((movie, index) => (
                     <SwiperSlide key={index}>
-                        <div className="movie-card">
+                        <div className="movie-card" onClick={() => setViewMovie(movie)}>
                             <img src={getPosterImg(movie)} alt={movie.title} className="poster" />
                             <div className="rank">{index + 1}</div>
                         </div>

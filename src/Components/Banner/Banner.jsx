@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux'
 import { inject } from '../../Redux/slices/movieSlice'
 import { useNavigate } from 'react-router-dom'
 
-
 function Banner() {
     let [bannerMovie, setBannerMovie] = useState({})
     const dispatch = useDispatch()
@@ -18,10 +17,9 @@ function Banner() {
         const fetchBanner = async () => {
             try {
                 const { data } = await axios.get(categoryURLs.trending)
-                if (data.results.length > 0) {
-                    const randomNum = Math.floor(Math.random() * data.results.length);
-                    setBannerMovie(data.results[randomNum]);
-                }
+                if (data.results.length === 0) return
+                const indexNum = Math.floor(Math.random() * data.results.length);
+                setBannerMovie(data.results[indexNum]);
             }
             catch (err) {
                 console.log("Error fetching banner movie:", err.message)
@@ -47,10 +45,12 @@ function Banner() {
         <div className='banner' style={{ backgroundImage: bannerMovie.backdrop_path ? `url(${imageUrl}/${bannerMovie?.backdrop_path})` : 'none' }}>
             <div className="content">
                 <h1 className='title'>{bannerMovie?.name || bannerMovie?.title || bannerMovie?.original_name}</h1>
+
                 <div className="buttons">
                     <button onClick={() => handleClickPlay(bannerMovie)}>Play</button>
                     <button>List</button>
                 </div>
+
                 <p>{truncate(bannerMovie?.overview, 150)}</p>
             </div>
             <div className="fade-bottom"></div>
