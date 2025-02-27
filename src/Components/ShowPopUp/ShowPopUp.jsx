@@ -44,7 +44,7 @@ function ShowPopUp({ viewMovie, setViewMovie }) {
                     axios.get(`https://api.themoviedb.org/3/genre/tv/list?api_key=${tmdbApiKey}`),
                     axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${tmdbApiKey}`)
                 ])
-                setGenres([...tvGenres.data.genres, ...movieGenres.data.genres]);
+                setGenres([...tvGenres.data.genres, ...movieGenres.data.genres])
             }
             catch (err) {
                 console.log('Error fetching genre names from TMDb :', err.message)

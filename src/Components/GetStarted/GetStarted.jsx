@@ -12,7 +12,8 @@ function GetStarted({ mainViewRef, isFooter }) {
     const dispatch = useDispatch()
 
     // Handle clicking get started with email
-    function handleGetStartedClick() {
+    function handleGetStartedClick(e) {
+        e.preventDefault()
         const email = emailRef.current?.value
 
         if (!email) {

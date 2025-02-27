@@ -17,7 +17,7 @@ function ItemsRow({ genreUrl, genreList, title, isSmall, isColumns }) {
         if (!genreList && genreUrl) {
             axios.get(genreUrl)
                 .then((res) => setFetchedShows(res.data.results || []))
-                .catch((err) => console.error('| ERROR |', err));
+                .catch((err) => console.error('Error fetching movies in ItemsRow:', err.message))
         }
     }, [genreUrl, genreList])
 
@@ -33,8 +33,8 @@ function ItemsRow({ genreUrl, genreList, title, isSmall, isColumns }) {
     // Movie poster image URL config
     const getPosterImg = (movie, isSmall) => {
         let noPosterImage = 'https://www.whats-on-netflix.com/wp-content/uploads/2022/11/netflix-titles-unavailable-in-ad-tier-2022-jpg-e1667947056747.webp'
-        const imagePath = isSmall ? movie.backdrop_path : movie.poster_path;
-        return imagePath ? `${imageUrl}/${imagePath}` : noPosterImage;
+        const imagePath = isSmall ? movie.backdrop_path : movie.poster_path
+        return imagePath ? `${imageUrl}/${imagePath}` : noPosterImage
     }
 
     // Rendering

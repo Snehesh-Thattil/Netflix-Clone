@@ -51,15 +51,15 @@ function MyListView() {
 
   // Get unique genres from the user's watchlist
   const sortedGenres = useMemo(() => {
-    const uniqueGenreIds = [...new Set(list.flatMap(({ genre_ids }) => genre_ids))];
+    const uniqueGenreIds = [...new Set(list.flatMap(({ genre_ids }) => genre_ids))]
 
     return uniqueGenreIds
       .map((id) => genres.find((genre) => genre.id === id))
       .filter(Boolean)
       .reduce((acc, genre) => {
-        if (!acc.some((g) => g.id === genre.id)) acc.push(genre);
-        return acc;
-      }, []);
+        if (!acc.some((g) => g.id === genre.id)) acc.push(genre)
+        return acc
+      }, [])
   }, [list, genres]);
 
   // Filter movies by selected genre
