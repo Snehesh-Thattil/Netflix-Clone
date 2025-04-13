@@ -46,7 +46,7 @@ function GetStarted({ mainViewRef, isFooter }) {
         <div className={isFooter ? "description footer" : "description"}>
             <div className="headings">
                 <h1>Unlimited movies, TV shows and more</h1>
-                <h2>Starts at ₹149. Cancel at any time.</h2>
+                <h2>Starts at ₹199. Cancel at any time.</h2>
                 <p>Ready to watch? Enter your email to create or restart your membership.</p>
             </div>
             <form action="">
