@@ -36,7 +36,7 @@ function PlayMovie() {
     // Check if movie is already in watchlist
     useEffect(() => {
         if (!movie?.id || !watchlistRef) return;
-        async function checkWatchlist() {
+        const checkWatchlist = async () => {
             try {
                 const snapshot = await getDocs(watchlistRef)
                 setIsListed(snapshot.docs.some((item) => movie?.id === item.data().id))

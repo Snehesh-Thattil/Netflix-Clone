@@ -112,17 +112,17 @@ function Plans() {
           await stripe.redirectToCheckout({ sessionId })
         }
       })
+
     } catch (err) {
       console.log("Error handling subscription:", err)
-    } finally {
-      setIsLoader(false)
     }
   }, [user])
 
   // Rendering
-  if (isLoader) return <Loader />
   return (
     <div className='plans-wrapper'>
+      {isLoader ? <Loader /> : ''}
+
       <h3>( Current Plan: {subscription[subscription.length - 1]?.role || 'Not Subscribed'} )</h3>
       {subscription.length !== 0 && <p>Renewal date: {new Date(subscription[subscription.length - 1]?.current_period_start * 1000 + 29 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>}
 
