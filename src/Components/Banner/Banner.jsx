@@ -86,7 +86,7 @@ function Banner() {
                         : <button onClick={() => handleAddToList(bannerMovie)}>List</button>}
                 </div>
 
-                <p>{truncate(bannerMovie?.overview, 150)}</p>
+                <p>{truncate(bannerMovie?.overview, 175)}</p>
             </div>
             <div className="fade-bottom"></div>
         </div>

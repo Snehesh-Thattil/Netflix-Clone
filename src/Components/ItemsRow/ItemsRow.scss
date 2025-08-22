@@ -99,6 +99,10 @@
         .cards {
             &.columns {
                 grid-template-columns: repeat(3, 1fr);
+
+                .card {
+                    min-width: unset;
+                }
             }
         }
 

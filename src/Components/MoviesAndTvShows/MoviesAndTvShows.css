@@ -59,6 +59,11 @@
 }
 
 @media screen and (max-width: 767px) {
+  .MyListView,
+  .MoviesView,
+  .UpcomingView {
+    margin-top: 7rem;
+  }
   .MyListView .toggle-contents,
   .MoviesView .toggle-contents,
   .UpcomingView .toggle-contents {
@@ -76,7 +81,7 @@
   .MyListView,
   .MoviesView,
   .UpcomingView {
-    margin-top: 6rem;
+    margin-top: 8rem;
   }
   .MyListView .toggle-contents,
   .MoviesView .toggle-contents,

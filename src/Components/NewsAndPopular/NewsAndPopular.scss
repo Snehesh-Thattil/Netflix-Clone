@@ -5,12 +5,12 @@ $text-white: #ffffff;
 $bg-dark: #181818;
 
 .NewsAndPopular {
-    padding: 2rem;
+    padding: 2rem 2rem 7rem;
     margin-top: 4rem;
     width: 100%;
     min-height: 100vh;
     background-color: $primary-black;
-
+    position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
@@ -111,18 +111,49 @@ $bg-dark: #181818;
             }
         }
     }
+
+    .paginations {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        gap: 1rem;
+        bottom: 2rem;
+        right: 2rem;
+
+        button {
+            padding: .5rem;
+            width: 7.5rem;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            background-color: #e50914be;
+            color: white;
+            font-style: italic;
+            font-weight: bold;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                background-color: #e50914;
+            }
+        }
+    }
 }
 
 
 // MEDIA-QUERIES RESPONSIVENESS
 @media (max-width: 1200px) {
     .NewsAndPopular {
+        margin-top: 7rem;
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .NewsAndPopular {
+        margin-top: 5rem;
         grid-template-columns: repeat(2, 1fr);
     }
 }

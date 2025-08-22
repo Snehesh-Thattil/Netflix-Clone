@@ -82,6 +82,9 @@
   .genres .cards.columns {
     grid-template-columns: repeat(3, 1fr);
   }
+  .genres .cards.columns .card {
+    min-width: unset;
+  }
   .genres .title {
     margin-left: 0;
     transform: scale(0.75);

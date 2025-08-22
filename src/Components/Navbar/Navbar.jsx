@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 function Navbar() {
     const navbarRef = useRef()
     const navToggleRef = useRef()
+    const inputRef = useRef()
     const navigate = useNavigate()
 
     // Show navbar when scrolling up
@@ -67,6 +68,13 @@ function Navbar() {
                     <li><Link to="/upcoming">Upcoming</Link></li>
                 </ul>
             </div>
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                navigate('/search', { state: { search: inputRef.current?.value } })
+            }}>
+                <input type="search" ref={inputRef} placeholder='Search shows, movies, etc...' />
+                <button type="submit">Search</button>
+            </form>
             <img className='avatar' onClick={() => navigate('/profile')} src='https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png' alt="Netflix_User_Avatar" />
         </div>
     )

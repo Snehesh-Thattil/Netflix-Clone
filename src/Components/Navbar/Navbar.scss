@@ -40,18 +40,64 @@
             align-items: center;
             list-style: none;
             gap: 2rem;
+            z-index: 2;
 
             li {
                 a {
-
+                    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.85);
                     text-decoration: none;
-                    color: rgb(204, 204, 204);
+                    color: rgb(222, 222, 222);
                     font-weight: bold;
 
                     &:hover {
                         color: white;
                     }
                 }
+            }
+        }
+    }
+
+    form {
+        display: flex;
+
+        input {
+            padding: .5rem;
+            border-radius: 0.25rem;
+            border: 1px solid gray;
+            outline: none;
+            background-color: rgba(0, 0, 0, 0.719);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: large;
+            background-color: rgba(0, 0, 0, 0.4);
+
+            &:focus {
+                outline: 1px solid wheat;
+                background-color: rgba(0, 0, 0, 0.75);
+                box-shadow: 0 0 5px black;
+            }
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.75);
+                font-size: small;
+            }
+        }
+
+        button {
+            background-color: rgb(221, 14, 24);
+            font-weight: bold;
+            padding: .5rem 1rem;
+            color: rgb(255, 255, 255);
+            border-radius: 0.25rem;
+            border: none;
+            margin-left: .5rem;
+            cursor: pointer;
+            transition: background-color .2s ease-in-out;
+
+            &:hover {
+                background-color: rgb(245, 7, 19);
             }
         }
     }
@@ -71,6 +117,9 @@
 // MEDIA-QUERIES RESPONSIVENESS
 @media screen and (max-width:1024px) {
     .navbar {
+        padding: 1rem;
+        height: 3rem;
+
         .nav-items-wrapper {
             .nav-toggler {
                 display: flex;
@@ -133,12 +182,36 @@
                 }
             }
         }
+
+        form {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 3.5rem;
+            width: 100%;
+            z-index: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            gap: 1rem;
+
+            input {
+                flex: 1;
+                padding: .25rem;
+            }
+
+            button {
+                padding: .25rem 1rem;
+                margin-left: unset;
+            }
+        }
     }
 }
 
 @media (min-width:768px) and (max-width:1024px) {
     .navbar {
-        height: 6rem;
+        height: 5rem;
+        padding: 1rem 2rem;
 
         .logo {
             width: 100px;
@@ -156,6 +229,21 @@
 
             .nav-items {
                 top: 125%;
+            }
+        }
+
+        form {
+            top: 5rem;
+            padding: 0 1.5rem;
+
+            input {
+                flex: 1;
+                padding: .5rem;
+            }
+
+            button {
+                padding: .5rem 2rem;
+                margin-left: unset;
             }
         }
 

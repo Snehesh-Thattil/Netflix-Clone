@@ -1,9 +1,10 @@
 .NewsAndPopular {
-  padding: 2rem;
+  padding: 2rem 2rem 7rem;
   margin-top: 4rem;
   width: 100%;
   min-height: 100vh;
   background-color: #141414;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
@@ -72,7 +73,7 @@
   overflow: hidden;
 }
 .NewsAndPopular .box .contents .explanation {
-  color: #b3b3b3;
+  color: rgb(178.5, 178.5, 178.5);
   font-size: 0.9rem;
   line-height: 1.4;
   margin-bottom: 1.5rem;
@@ -93,16 +94,44 @@
   transition: background-color 0.3s ease;
 }
 .NewsAndPopular .box .contents a:hover {
-  background-color: #b40710;
+  background-color: rgb(179.9285714286, 7.0714285714, 15.7142857143);
+}
+.NewsAndPopular .paginations {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  gap: 1rem;
+  bottom: 2rem;
+  right: 2rem;
+}
+.NewsAndPopular .paginations button {
+  padding: 0.5rem;
+  width: 7.5rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(229, 9, 20, 0.7450980392);
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+.NewsAndPopular .paginations button:hover {
+  background-color: #e50914;
 }
 
 @media (max-width: 1200px) {
   .NewsAndPopular {
+    margin-top: 7rem;
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .NewsAndPopular {
+    margin-top: 5rem;
     grid-template-columns: repeat(2, 1fr);
   }
 }

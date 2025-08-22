@@ -8,7 +8,7 @@
   margin-top: 4rem;
   background-color: rgb(26, 25, 25);
 }
-.PlayMovie .trailer {
+.PlayMovie .video {
   width: 100%;
   height: -moz-fit-content;
   height: fit-content;
@@ -17,10 +17,25 @@
      object-fit: contain;
   background-color: rgb(160, 47, 53);
 }
+.PlayMovie .video p {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: large;
+  color: #e6e6e6;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.85);
+}
+.PlayMovie .video p span {
+  font-size: xx-large;
+}
 .PlayMovie .title {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 0 7.5rem;
   height: 7rem;
 }
@@ -82,7 +97,7 @@
 
 @media (min-width: 767px) and (max-width: 1024px) {
   .PlayMovie {
-    margin-top: 6rem;
+    margin-top: 8.5rem;
   }
   .PlayMovie .title {
     padding: 0 5rem;
@@ -93,6 +108,9 @@
   }
 }
 @media screen and (max-width: 767px) {
+  .PlayMovie {
+    margin-top: 6.5rem;
+  }
   .PlayMovie .title {
     padding: 0 2.5rem;
     flex-direction: column;

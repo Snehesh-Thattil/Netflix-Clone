@@ -1,4 +1,3 @@
-import React from 'react'
 import './ReasonsToJoin.css'
 import TvIcon from "../../Assets/Tv.png";
 import NewsIcon from "../../Assets/chat.png";

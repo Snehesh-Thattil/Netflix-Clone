@@ -1,0 +1,16 @@
+.SearchResults {
+    width: 100%;
+    margin-top: 4rem;
+}
+
+@media screen and (max-width:767px) {
+    .SearchResults {
+        margin-top: 8rem;
+    }
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+    .SearchResults {
+        margin-top: 8rem;
+    }
+}

@@ -21,10 +21,18 @@ function PlayMovie() {
         if (!movie?.id) return;
         try {
             const res = await axios.get(`/movie/${movie.id}/videos?api_key=${tmdbApiKey}&language=en-US`)
-            const video = res.data.results?.find(video => video.key)
-            setTrailer(video?.key)
-        }
-        catch (err) {
+
+            // Filter for YouTube trailer
+            const trailers = res.data.results.filter(
+                (video) => video.type.toLowerCase() === "trailer" && video.site.toLowerCase() === "youtube")
+
+            const officialTrailer = trailers.find(video => video.official === true);
+
+            // Fallback: any trailer or any video if official trailer not found
+            const trailerKey = officialTrailer?.key || trailers[0]?.key || res.data.results?.find(video => video.key)?.key
+
+            setTrailer(trailerKey)
+        } catch (err) {
             console.log("Error Fetching Trailer :", err.message)
         }
     }, [movie?.id])
@@ -94,7 +102,10 @@ function PlayMovie() {
     // Rendering
     return (
         <div className='PlayMovie'>
-            <YouTube className="trailer" videoId={trailer} opts={opts} />
+            {trailer ? <YouTube className="video" videoId={trailer} opts={opts} />
+                : <div className='video'>
+                    <p> <span>Sorry,</span> Video unavailable</p>
+                </div>}
 
             <div className="title">
                 <h1>{movie?.name || movie?.title || movie?.original_name}</h1>

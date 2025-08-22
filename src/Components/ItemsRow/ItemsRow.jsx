@@ -6,22 +6,36 @@ import { useDispatch } from 'react-redux'
 import { inject } from '../../Redux/slices/movieSlice'
 import { useNavigate } from 'react-router-dom'
 import Loader from '../Loader/Loader'
+import { tmdbApiKey } from '../../APIs/Constants'
 
-function ItemsRow({ genreUrl, genreList, title, isSmall, isColumns }) {
+function ItemsRow({ genreUrl, genreList, movieSearch, title, isSmall, isColumns }) {
     const [fetchedShows, setFetchedShows] = useState([])
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    // Fetch TMDb movies when provided genreUrls and not genreList
+    // Fetch TMDb movies based on genreUrls or movieSearch
     useEffect(() => {
-        if (!genreList && genreUrl) {
-            axios.get(genreUrl)
-                .then((res) => setFetchedShows(res.data.results || []))
-                .catch((err) => console.error('Error fetching movies in ItemsRow:', err.message))
-        }
-    }, [genreUrl, genreList])
+        const fetchMovies = async () => {
+            try {
+                let res;
+                if (!genreList && genreUrl) {
+                    res = await axios.get(genreUrl)
+                }
+                else if (!genreList && movieSearch) {
+                    res = await axios.get(`search/movie?api_key=${tmdbApiKey}&query=${encodeURIComponent(movieSearch)}`)
+                }
 
-    // Use genreList if available, otherwise fallback to fetchedShows
+                setFetchedShows(res?.data?.results || [])
+            }
+            catch (err) {
+                console.error('Error fetching movies in ItemsRow:', err.message)
+            }
+        }
+
+        fetchMovies()
+    }, [genreUrl, genreList, movieSearch])
+
+    // Use genreList if provided. Else, fallback to fetchedShows
     const shows = useMemo(() => genreList || fetchedShows, [genreList, fetchedShows])
 
     // Navigate to show movie Trailer
@@ -32,9 +46,9 @@ function ItemsRow({ genreUrl, genreList, title, isSmall, isColumns }) {
 
     // Movie poster image URL config
     const getPosterImg = (movie, isSmall) => {
-        let noPosterImage = 'https://www.whats-on-netflix.com/wp-content/uploads/2022/11/netflix-titles-unavailable-in-ad-tier-2022-jpg-e1667947056747.webp'
+        let fallback = 'https://www.whats-on-netflix.com/wp-content/uploads/2022/11/netflix-titles-unavailable-in-ad-tier-2022-jpg-e1667947056747.webp'
         const imagePath = isSmall ? movie.backdrop_path : movie.poster_path
-        return imagePath ? `${imageUrl}/${imagePath}` : noPosterImage
+        return imagePath ? `${imageUrl}/${imagePath}` : fallback
     }
 
     // Rendering

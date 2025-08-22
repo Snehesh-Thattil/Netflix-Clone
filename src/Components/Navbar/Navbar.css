@@ -35,14 +35,59 @@
   align-items: center;
   list-style: none;
   gap: 2rem;
+  z-index: 2;
 }
 .navbar .nav-items-wrapper .nav-items li a {
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.85);
   text-decoration: none;
-  color: rgb(204, 204, 204);
+  color: rgb(222, 222, 222);
   font-weight: bold;
 }
 .navbar .nav-items-wrapper .nav-items li a:hover {
   color: white;
+}
+.navbar form {
+  display: flex;
+}
+.navbar form input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid gray;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.719);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: large;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.navbar form input:focus {
+  outline: 1px solid wheat;
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px black;
+}
+.navbar form input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: small;
+}
+.navbar form input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: small;
+}
+.navbar form button {
+  background-color: rgb(221, 14, 24);
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  border: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.navbar form button:hover {
+  background-color: rgb(245, 7, 19);
 }
 .navbar .avatar {
   width: 30px;
@@ -54,6 +99,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 1rem;
+    height: 3rem;
+  }
   .navbar .nav-items-wrapper .nav-toggler {
     display: flex;
     flex-direction: column;
@@ -106,10 +155,31 @@
   .navbar .nav-items-wrapper .nav-items li:hover a {
     color: black;
   }
+  .navbar form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 3.5rem;
+    width: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+  .navbar form input {
+    flex: 1;
+    padding: 0.25rem;
+  }
+  .navbar form button {
+    padding: 0.25rem 1rem;
+    margin-left: unset;
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .navbar {
-    height: 6rem;
+    height: 5rem;
+    padding: 1rem 2rem;
   }
   .navbar .logo {
     width: 100px;
@@ -123,6 +193,18 @@
   }
   .navbar .nav-items-wrapper .nav-items {
     top: 125%;
+  }
+  .navbar form {
+    top: 5rem;
+    padding: 0 1.5rem;
+  }
+  .navbar form input {
+    flex: 1;
+    padding: 0.5rem;
+  }
+  .navbar form button {
+    padding: 0.5rem 2rem;
+    margin-left: unset;
   }
   .navbar .avatar {
     width: 40px;

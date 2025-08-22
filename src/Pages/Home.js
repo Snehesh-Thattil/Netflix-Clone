@@ -1,4 +1,3 @@
-import React from 'react'
 import { categoryURLs } from '../APIs/URLs';
 import Banner from '../Components/Banner/Banner';
 import Navbar from '../Components/Navbar/Navbar';

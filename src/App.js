@@ -9,7 +9,8 @@ import News from './Pages/News';
 import MyList from './Pages/MyList';
 import Play from './Pages/Play';
 import Upcoming from './Pages/Upcoming';
-import Profile from './Pages/Profile'
+import Profile from './Pages/Profile';
+import Search from './Pages/Search';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { onIdTokenChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
@@ -66,6 +67,7 @@ function App() {
           <Route element={<Movies />} path='/movies' />
           <Route element={<MyList />} path='/my-list' />
           <Route element={<Upcoming />} path='/upcoming' />
+          <Route element={<Search />} path='/search' />
         </Routes>
       }
     </div>
